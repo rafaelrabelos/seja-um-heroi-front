@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import logoImg from '../../assets/logo.svg';
 import { FiArrowLeft } from 'react-icons/fi'
 import './styles.css';
-import api from '../../Services/api';
+import api from '../../services/api';
 
 export default function NewIncident() {
     const[title, setTitle] = useState('');

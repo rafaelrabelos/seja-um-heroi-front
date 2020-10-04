@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
-import api from '../../Services/api';
+import api from '../../services/api';
 import './styles.css';
 
 import logoImg from '../../assets/logo.svg';
