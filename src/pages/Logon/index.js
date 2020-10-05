@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi';
-import api from '../../services/api';
-import './styles.css';
-
 import logoImg from '../../assets/logo.svg';
 import heroesImg from '../../assets/heroes.png';
+import { AuthService } from '../../services';
+import './styles.css';
 
 export default function Logon() {
     const [id, setId] = useState('');
@@ -14,17 +13,15 @@ export default function Logon() {
     async function handleLogin(e){
         e.preventDefault();
 
-        try {
-            const response = await api.post('sessions', { id });
-
-            localStorage.setItem('ongId', id);
-            localStorage.setItem('ongName', response.data.name);
-
+        AuthService.Login({id})
+        .then( res =>{
             history.push('/profile');
-        } catch (error) {
-            alert('Falha no Login. Tente novamente');
-        }
-
+            console.log(res);
+        })
+        .catch(err =>{
+            alert('Falha no Login. Tente novamente')
+            console.log(err);
+        });
     }
 
     return (
@@ -35,7 +32,7 @@ export default function Logon() {
                 <form onSubmit={handleLogin}>
                     <h1>Faça seu Login</h1>
 
-                    <input placeHolder="Sua ID" value={id} onChange={e => setId(e.target.value)}/>
+                    <input placeholder="Sua ID" value={id} onChange={e => setId(e.target.value)}/>
                     <button className="button" type="submit">Entrar</button>
 
                     <Link className="back-link" to="/register">

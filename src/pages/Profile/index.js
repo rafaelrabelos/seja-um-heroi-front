@@ -3,44 +3,34 @@ import { Link, useHistory } from 'react-router-dom';
 import logoImg from '../../assets/logo.svg';
 import { FiPower, FiTrash2 } from 'react-icons/fi'
 import './styles.css';
-import api from '../../services/api';
+import {IncidentService, AuthService, ProfileService} from '../../services';
 
 export default function Profile() {
     const [incidents, setIncidents] = useState([]);
-    const ongId = localStorage.getItem('ongId');
-    const ongName = localStorage.getItem('ongName');
+    const ongId = AuthService.GetSessionData('ongId');
+    const ongName = AuthService.GetSessionData('ongName');
     const history = useHistory();
 
     useEffect(() => {
-        api.get('profile', {
-            headers: {
-                Authorization: ongId,
-            }
-        }).then(response => {
-            setIncidents(response.data);
-        })
+        ProfileService.GetProfile()
+        .then( res => setIncidents(res.data))
+        .catch( err => console.log(err));
     }, [ongId]);
 
     async function handleDeleteIncident(id) {
-        try {
-            await api.delete(`incidents/${id}`, {
-                headers:{
-                    Authorization: ongId,
-                }
-            });
-            
+
+        IncidentService.DeleteIncident(id)
+        .then(res =>{
             setIncidents(incidents.filter(incident => incident.id !== id));
-
             alert('Cadastro deletado com sucesso');
-        } catch (err) {
+        })
+        .catch(err =>{
             alert('Erro ao deletar o caso. Tente novamente!');
-        }
+            console.log(err)
+        });
     }
 
-    function handleLogout(params) {
-        localStorage.clear();
-        history.push('/');
-    }
+    const handleLogout = () => AuthService.Logout().then(history.push('/'));
 
     return(
     <div className="profile-container">

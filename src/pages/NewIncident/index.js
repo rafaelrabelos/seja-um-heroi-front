@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import logoImg from '../../assets/logo.svg';
 import { FiArrowLeft } from 'react-icons/fi'
+import {IncidentService} from '../../services';
 import './styles.css';
-import api from '../../services/api';
 
 export default function NewIncident() {
     const[title, setTitle] = useState('');
@@ -12,29 +12,21 @@ export default function NewIncident() {
 
     const history = useHistory();
 
-    const ongId = localStorage.getItem('ongId');
-
     async function handleNewIncident(e) {
         e.preventDefault();
         
-        const data = {
-            title,
-            description,
-            value,
-        };
+        const data = {title, description, value};
 
-        try {
-            await api.post('incidents', data, {
-                headers: {
-                    Authorization: ongId,
-                }
-            })
-
+        IncidentService.InsertIncident(data)
+        .then( res =>{
             history.push('/profile');
             alert('Caso cadastrado com sucesso')
-        } catch (error) {
-            alert('Erro ao cadastrar caso. Tente novamente')
-        }
+            console.log(res);
+        })
+        .catch( err =>{
+            alert('Erro ao cadastrar caso. Tente novamente');
+            console.log(err);
+        });
     }
     
     return (
