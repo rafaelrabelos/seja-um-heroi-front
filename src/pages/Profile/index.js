@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import logoImg from '../../assets/logo.svg';
 import { FiPower, FiTrash2 } from 'react-icons/fi'
 import './styles.css';
-import {IncidentService, AuthService, ProfileService} from '../../services';
+import {IncidentService, AuthService, ProfileService} from '../../Services';
 
 export default function Profile() {
     const [incidents, setIncidents] = useState([]);

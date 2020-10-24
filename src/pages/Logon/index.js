@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi';
 import logoImg from '../../assets/logo.svg';
 import heroesImg from '../../assets/heroes.png';
-import { AuthService } from '../../services';
+import { AuthService } from '../../Services';
 import './styles.css';
 
 export default function Logon() {
