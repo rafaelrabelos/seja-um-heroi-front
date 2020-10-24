@@ -4,14 +4,13 @@ import { FiArrowLeft } from 'react-icons/fi';
 import api from '../../Services/api';
 import './styles.css';
 
-import logoImg from '../../assets/logo.svg';
+import logoImg from '../../img/logo.png';
 
 export default function Register() {
-    const [name, setName] = useState('');
+    const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
-    const [whatsapp, setWhatsapp] = useState('');
-    const [city, setCity] = useState('');
-    const [uf, setUf] = useState('');
+    const [senha, setSenha] = useState('');
+    const [repeteSenha, setRepeteSenha] = useState('');
 
     const history = useHistory(); //navegação através de uma função javascript, quando não se pode colocar o link do ReactRouter Dom
 
@@ -19,11 +18,10 @@ export default function Register() {
         e.preventDefault();
 
         const data = {
-            name,
+            nome,
             email,
-            whatsapp,
-            city,
-            uf,
+            senha,
+            repeteSenha,
         };
 
         try {
@@ -44,24 +42,21 @@ export default function Register() {
                     <img src={logoImg} alt="Be The Hero"/>
 
                     <h1>Cadastro</h1>
-                    <p>Faça seu cadastro, entre na plataforma e ajude pessoas a encontrarem os casos da sua ONG.</p>
+                    <p>Faça seu cadastro e torne-se um herói, adotanto um pet e tirando ele das ruas.</p>
 
                     <Link className="back-link" to="/">
                         <FiArrowLeft size={16} color="#E02041"/>
-                        Não tenho cadastro
+                        Já tenho cadastro
                     </Link>
                 </section>
 
                 <form onSubmit={handleRegister}>
-                    <input placeholder="Nome da ONG" value={name} onChange={e => setName(e.target.value)} />
+                    <input placeholder="Nome" value={nome} onChange={e => setNome(e.target.value)} />
                     <input type="email" placeholder="E-mail" value={email} onChange={e => setEmail(e.target.value)}/>
-                    <input placeholder="WhatsApp" value={whatsapp} onChange={e => setWhatsapp(e.target.value)}/>
                     
-                    <div className="input-group">
-                        <input placeholder="Cidade" value={city} onChange={e => setCity(e.target.value)}/>
-                        <input placeholder="UF" style={{ width: 80 }} value={uf} onChange={e => setUf(e.target.value)}  />
-                    </div>
-
+                    <hr />
+                    <input type="password" placeholder="Senha" value={senha} onChange={e => setSenha(e.target.value)}/>
+                    <input type="password" placeholder="Repetir Senha" value={repeteSenha} onChange={e => setRepeteSenha(e.target.value)}/>
                     <button className="button" type="submit">Cadastrar</button>
                 </form>
             </div>

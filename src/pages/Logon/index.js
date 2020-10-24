@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import { AuthService } from '../../Services';
 import petImg from '../../img/pets.jpg';
 import logoImg from '../../img/logo.png';
-//import petImgs from '../../../img/pets.jpg';
 import './styles.css';
 
 export default function Logon() {
@@ -25,7 +24,6 @@ export default function Logon() {
     }
 
     return (
-        
         <section class="form my-4 mx-5">
         <div class="container">
             <div class="row no-gutters">
@@ -46,7 +44,6 @@ export default function Logon() {
                                 <li>Entre cães e gatos, são mais de <b>8.000</b> &#128021; cadastros</li>
                             </ul>
                         </p>
-                        
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 px-5 pt-5">
@@ -73,7 +70,7 @@ export default function Logon() {
                                 <button type="button" class="btn2 mb-3"><i class="fab fa-google mr-2"></i>Logar com o Google</button>
                             </div>
                         </div>
-                        <p>Ainda não é um herói?<a href="#"> Cadastre-se!</a></p>
+                        <p>Ainda não é um herói?<a href="/cadastrar"> Cadastre-se!</a></p>
                     </form>
                 </div>
             </div>
