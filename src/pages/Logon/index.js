@@ -28,7 +28,7 @@ export default function Logon() {
     }
 
     return (
-        <section class="form my-4 mx-5">
+    <section class="form my-4 mx-5">
         <div class="container main-container">
             <div class="row no-gutters">
                 <div class="col-lg-6 col-md-6">
