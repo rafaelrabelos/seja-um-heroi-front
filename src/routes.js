@@ -1,4 +1,4 @@
-import { Route, Switch, Redirect} from "react-router-dom";
+import { Route } from "react-router-dom";
 import { Logon, Register, Home } from 'pages';
 
 var routes = [

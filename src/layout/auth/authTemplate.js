@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row } from "reactstrap";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Switch, Redirect } from "react-router-dom";
 //components
 import Rodape from "./components/rodape";
 import routes, {getRoutes} from "routes.js";
