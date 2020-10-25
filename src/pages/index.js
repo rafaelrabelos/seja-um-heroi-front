@@ -1,6 +1,5 @@
 import Logon from './Logon';
 import Register from './Register';
-import Profile from './Profile';
-import NewIncident from './NewIncident';
+import Home from './Home';
  
-export {Logon, Register, Profile, NewIncident}
+export {Logon, Register, Home}

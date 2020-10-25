@@ -9,7 +9,6 @@
  body, html{
     height: 100%;
     background-repeat: no-repeat;
-    background-color: #d3d3d3;
     font-family: 'Oxygen', sans-serif;
 }
 
@@ -25,7 +24,7 @@ h1.title {
 
 hr{
    width: 10%;
-   color: #fff;
+   color: rgb(146, 167, 32);
 }
 
 .form-group{
@@ -62,13 +61,24 @@ input::-webkit-input-placeholder {
 
 }
 
+.login-button{
+   margin-top: 5px;
+}
+
+.login-register{
+   font-size: 11px;
+   text-align: center;
+}
+
 h11 {
    color:red;
 }
+
 #logo {
        width:50%;
        height:50%;
 }
+
 .panel-heading{
    font-size:150%;
 }
