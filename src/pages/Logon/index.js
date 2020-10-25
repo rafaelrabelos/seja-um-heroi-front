@@ -74,7 +74,7 @@ export default function Logon() {
                                 <button type="button" class="btn2 mb-3"><i class="fab fa-google mr-2"></i>Logar com o Google</button>
                             </div>
                         </div>
-                        <p>Ainda não é um herói?<a href="/cadastrar"> Cadastre-se!</a></p>
+                        <p>Ainda não é um herói?<a href="/auth/cadastrar"> Cadastre-se!</a></p>
                     </form>
                 </div>
             </div>

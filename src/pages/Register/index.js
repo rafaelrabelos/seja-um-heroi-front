@@ -29,7 +29,7 @@ export default function Register() {
 
             alert(`Seu ID de acesso: ${response.data.id}`);
 
-            history.push('/');
+            history.push('/auth');
         } catch (err) {
             alert('Erro no cadastro. Tente novamente.');
         }
@@ -44,7 +44,7 @@ export default function Register() {
                     <h1>Cadastro</h1>
                     <p>Faça seu cadastro e torne-se um herói, adotanto um pet e tirando ele das ruas.</p>
 
-                    <Link className="back-link" to="/">
+                    <Link className="back-link" to="/auth">
                         <FiArrowLeft size={16} color="#E02041"/>
                         Já tenho cadastro
                     </Link>
