@@ -9,12 +9,16 @@ export default function Logon() {
     const [id, setId] = useState('');
     const history = useHistory();
 
+    async function irParaHome() {
+        history.push('/home');
+    }
+
     async function handleLogin(e){
         e.preventDefault();
 
         AuthService.Login({id})
         .then( res =>{
-            history.push('/profile');
+            history.push('/home');
             console.log(res);
         })
         .catch(err =>{
@@ -25,7 +29,7 @@ export default function Logon() {
 
     return (
         <section class="form my-4 mx-5">
-        <div class="container">
+        <div class="container main-container">
             <div class="row no-gutters">
                 <div class="col-lg-6 col-md-6">
                     <div class="col-lg-12 col-md-10">
@@ -62,7 +66,7 @@ export default function Logon() {
                         </div>
                         <div class="form-row">
                             <div class="col-lg-7">
-                                <button type="button" class="btn1 mt-3 mb-1">Logar</button>
+                                <button onClick={() => irParaHome()} type="button" class="btn1 mt-3 mb-1">Logar</button>
                             </div>
                         </div>
                         <div class="form-row">
@@ -73,15 +77,6 @@ export default function Logon() {
                         <p>Ainda não é um herói?<a href="/cadastrar"> Cadastre-se!</a></p>
                     </form>
                 </div>
-            </div>
-            <div class="footer">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                        <p style={{color: "black", textdecoration: "none"}}><a href="#">Seja um Herói</a> 2020
-                        © Todos os direitos Reservados.</p>
-                    </div>
-                    <hr />
-                </div>	
             </div>
         </div>
     </section>
