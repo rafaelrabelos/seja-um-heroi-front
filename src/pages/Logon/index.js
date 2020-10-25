@@ -10,7 +10,7 @@ export default function Logon() {
     const history = useHistory();
 
     async function irParaHome() {
-        history.push('/home');
+        history.push('/hero');
     }
 
     async function handleLogin(e){

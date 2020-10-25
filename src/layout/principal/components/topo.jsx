@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import {IncidentService, AuthService, ProfileService} from '../../Services';
-import logoImg from '../../img/logo.png';
-import './styles/topo.css';
+import {IncidentService, AuthService, ProfileService} from 'Services';
+import logoImg from 'img/logo.png';
+import 'layout/principal/styles/topo.css';
 
 export default function Topo() {
     const [incidents, setIncidents] = useState([]);

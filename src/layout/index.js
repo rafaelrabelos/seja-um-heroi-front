@@ -1,4 +1,4 @@
-import LayoutPrincipal from './principal/template';
+import HeroLayout from './principal/mainTemplate';
 import AuthLayout from './auth/authTemplate';
  
-export {LayoutPrincipal, AuthLayout}
+export {HeroLayout, AuthLayout}

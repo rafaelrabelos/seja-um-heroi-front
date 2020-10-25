@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import logoImg from '../../img/logo.png';
-import {IncidentService, AuthService, ProfileService} from '../../Services';
-import './styles/rodape.css';
+import { useHistory } from 'react-router-dom';
+import logoImg from 'img/logo.png';
+import {IncidentService, AuthService, ProfileService} from 'Services';
+import 'layout/principal/styles/rodape.css';
 
 export default function Rodape() {
     const [incidents, setIncidents] = useState([]);
