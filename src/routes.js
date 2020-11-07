@@ -1,4 +1,5 @@
 import { Route } from "react-router-dom";
+import React, { Component }  from 'react'
 import { Logon, Register, Home } from 'pages';
 
 var routes = [

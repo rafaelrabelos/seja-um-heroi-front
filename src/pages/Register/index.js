@@ -39,7 +39,7 @@ export default function Register() {
         <div className="register-container">
             <div className="content">
                 <section>
-                    <img src={logoImg} alt="Be The Hero"/>
+                    <img src={logoImg} alt="Seja um Herói"/>
 
                     <h1>Cadastro</h1>
                     <p>Faça seu cadastro e torne-se um herói, adotanto um pet e tirando ele das ruas.</p>

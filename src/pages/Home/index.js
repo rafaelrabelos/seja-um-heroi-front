@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react';
 import {useHistory } from 'react-router-dom';
 import {IncidentService, AuthService, ProfileService} from 'Services';
 import './styles.css';
+import bulldog from '../../img/bulldog.jpg';
+import corgi from '../../img/corgi.jpg';
+import lulu from '../../img/lulu.jpg';
+import pug from '../../img/pug.jpg';
+import salsicha from '../../img/salsicha.jpg';
+import shitsu from '../../img/shitsu.jpg';
+
 
 export default function Home() {
     const [incidents, setIncidents] = useState([]);
@@ -34,7 +41,7 @@ export default function Home() {
         <>
         <div class="container form-inline">
             <div class="card" style={{width: "18rem", margin:"1%"}}>
-            <img src={"/img/bulldog.jpg"} class="card-img-top" width="30px" height="200px" />
+            <img src={bulldog} class="card-img-top" width="30px" height="200px" />
             <div class="card-body">
                 <h5 class="card-title">Bulldog</h5>
                 <p class="card-text">Cachorro fofo, com nenhum problema de comportamento e muito bem criado.</p>
@@ -42,7 +49,7 @@ export default function Home() {
             </div>
             </div>
             <div class="card" style={{width: "18rem", margin:"1%"}}>
-            <img src="img/corgi.jpg" class="card-img-top" width="30px" height="200px" />
+            <img src={corgi} class="card-img-top" width="30px" height="200px" />
             <div class="card-body">
                 <h5 class="card-title">Corgi</h5>
                 <p class="card-text">Cachorro fofo, com nenhum problema de comportamento e muito bem criado.</p>
@@ -50,7 +57,7 @@ export default function Home() {
             </div>
             </div>
             <div class="card" style={{width: "18rem", margin:"1%"}}>
-            <img src="img/salsicha.jpg" class="card-img-top" width="30px" height="200px" />
+            <img src={salsicha} class="card-img-top" width="30px" height="200px" />
             <div class="card-body">
                 <h5 class="card-title">Salsicha</h5>
                 <p class="card-text">Cachorro fofo, com nenhum problema de comportamento e muito bem criado.</p>
@@ -58,7 +65,7 @@ export default function Home() {
             </div>
             </div>
             <div class="card" style={{width: "18rem", margin:"1%"}}>
-            <img src="img/shitsu.jpg" class="card-img-top" width="30px" height="200px" />
+            <img src={shitsu} class="card-img-top" width="30px" height="200px" />
             <div class="card-body">
                 <h5 class="card-title">Shitsu</h5>
                 <p class="card-text">Cachorro fofo, com nenhum problema de comportamento e muito bem criado.</p>
@@ -66,7 +73,7 @@ export default function Home() {
             </div>
             </div>
             <div class="card" style={{width: "18rem", margin:"1%"}}>
-            <img src="img/pug.jpg" class="card-img-top" width="30px" height="200px" />
+            <img src={pug} class="card-img-top" width="30px" height="200px" />
             <div class="card-body">
                 <h5 class="card-title">Pug</h5>
                 <p class="card-text">Cachorro fofo, com nenhum problema de comportamento e muito bem criado.</p>
@@ -74,7 +81,7 @@ export default function Home() {
             </div>
             </div>
             <div class="card" style={{width: "18rem", margin:"1%"}}>
-            <img src="img/lulu.jpg" class="card-img-top" width="30px" height="200px" />
+            <img src={lulu} class="card-img-top" width="30px" height="200px" />
             <div class="card-body">
                 <h5 class="card-title">Lulu</h5>
                 <p class="card-text">Cachorro fofo, com nenhum problema de comportamento e muito bem criado.</p>
