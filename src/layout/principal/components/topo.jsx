@@ -53,7 +53,7 @@ export default function Topo() {
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Cadastrar Caso</a>
-                    <a class="dropdown-item" href="#">Cadastrar Pets</a>
+                    <a class="dropdown-item" href="/hero/cadastrar">Cadastrar Pets</a>
                     <a class="dropdown-item" href="#">Cadastrar Usuário</a>
                 </div>
                 </li>

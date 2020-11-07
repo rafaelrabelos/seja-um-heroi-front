@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom";
 import React, { Component }  from 'react'
-import { Logon, Register, Home } from 'pages';
+import { Logon, Register, Pet, Home } from 'pages';
 
 var routes = [
     {
@@ -14,6 +14,12 @@ var routes = [
       page: "/login",
       nome: "Login",
       component: Logon
+    },
+    {
+      layout: "/hero",
+      page: "/cadastrar",
+      nome: "CadastrarPet",
+      component: Pet
     },
     {
       layout: "/auth",
