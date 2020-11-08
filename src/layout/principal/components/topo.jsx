@@ -66,20 +66,24 @@ export default function Topo() {
                             <li class="nav-item dropdown">
                                 
                                 <div className="row">
-                                <div className="col col-md-12">
-                                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <div className="row">
-                                            <div className="col col-md-12">
-                                                <img 
-                                                className="circle-img rounded-circle" 
-                                                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" 
-                                                data-holder-rendered="true" 
-                                                />
+                                    <div className="col col-md-12">
+                                        <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <div className="row">
+                                                <div className="col col-md-12">
+                                                    <img 
+                                                    className="circle-img rounded-circle" 
+                                                    src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" 
+                                                    data-holder-rendered="true" 
+                                                    />
+                                                </div>
                                             </div>
-                                        </div>
-                                        <small className="username">{userName()}</small>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown">
+                                            <small className="username">{userName()}</small>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown">
+                                            <div className="col col-md-12 user-description">
+                                                <small>{userName()}({userEmail()})</small>
+                                            </div>
+                                            <div class="dropdown-divider"></div>
                                             <a className="dropdown-item" href="#">
                                                 <div className="row">
                                                     <div className="col col-md-2"><i className="fa fa-user-circle"></i></div>
@@ -87,7 +91,7 @@ export default function Topo() {
                                                 </div>
                                             </a>
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="#" onClick={ () => handleLogout()}>
                                                 <div className="row">
                                                     <div className="col col-md-2">
                                                         <span style={{fontsize: "3em", color: "Tomato"}}>
