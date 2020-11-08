@@ -6,7 +6,6 @@ export async function Login({email, senha}) {
     const res = await api.post('/login',{ email, senha });
 
     if(res.data.status != false){
-        console.log(res);
         SessionInit(res.data.data);
     }
 

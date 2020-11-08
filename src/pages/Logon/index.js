@@ -10,23 +10,25 @@ export default class Logon extends React.Component {
         super(props);
         this.state = {
             email: "",
-            senha: ""
+            senha: "",
+            loginErro: "none",
+            loginErroMsg:""
         };
     }
 
     componentDidMount(){
         if(AuthService.IsValideSession()){
-            this.gotoHome();
+           // this.gotoHome();
         }
     }
 
     handleLogin(e){
         e.preventDefault();
 
-        AuthService.Login(this.state)
+        AuthService.Login({email:this.state.email, senha:this.state.senha})
         .then( res =>{
             if(res.data.status == false){
-                alert(res.data.erros)
+                this.showErrors(res);
             }else{
                 alert("Login Efetuado com sucesso!");
                 this.gotoHome();
@@ -35,11 +37,15 @@ export default class Logon extends React.Component {
         })
         .catch(err =>{
             if(err.response && err.response.data){
-                alert(err.response.data.erros)
+                this.showErrors(err.response);
             }
             console.log(err);
             console.log(err.response);
         });
+    }
+
+    showErrors(erros){
+        this.setState({loginErro: true, loginErroMsg:erros.data.erros.map(x => <p>{x}</p>) });
     }
 
     gotoHome(){
@@ -82,7 +88,9 @@ export default class Logon extends React.Component {
                                         placeholder="Email"
                                         value = {this.email}
                                         onChange = { (e) =>{ this.setState({email: e.target.value})}}
-                                        class="form-control my-3 p-4" />
+                                        class="form-control my-3 p-4" 
+                                        required={true}
+                                        />
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -91,12 +99,26 @@ export default class Logon extends React.Component {
                                         placeholder="Senha"
                                         value = {this.senha}
                                         onChange = { (e) =>{this.setState({senha: e.target.value})}}
-                                        class="form-control p-4" />
+                                        class="form-control p-4" 
+                                        required={true}
+                                        />
                                     </div>
                                 </div>
+                                <div class="form-row" style={{display:this.state.loginErro}}>
+                                    <div class="col-lg-7">
+                                        <br />
+                                    <div className="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <strong>Ooops!</strong>{this.state.loginErroMsg} <a href="/auth/recuperar-senha">Recuperar senha</a>
+                                        <button type="button" onClick={() => this.setState({loginErroMsg:"",loginErro:"none" })} class="close"  aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    </div>
+                                </div>
+                                
                                 <div class="form-row">
                                     <div class="col-lg-7">
-                                        <button onClick ={(e) => this.handleLogin(e)}  type="button" class="btn1 mt-3 mb-1">Logar</button>
+                                        <button onClick ={(e) => this.handleLogin(e)}  type="submit" class="btn1 mt-3 mb-1">Logar</button>
                                     </div>
                                 </div>
                                 <div class="form-row">
