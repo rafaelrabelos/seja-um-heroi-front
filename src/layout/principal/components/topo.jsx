@@ -33,7 +33,7 @@ export default function Topo() {
 
     return(
         <>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light" style={{borderBottomStyle:"ridge"}}>
             <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="#">
                 <img src={logoImg} width="100" height="30" alt="" />
@@ -65,8 +65,10 @@ export default function Topo() {
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar"/>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                <div class="input-group input-group-sm mb-3">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar"/>
+                    <button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+                </div>
             </form>
             </div>
         </nav></>
