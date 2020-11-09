@@ -25,7 +25,7 @@ export default class Register extends React.Component {
 
         e.preventDefault();
 
-        if( this.state.cadastrarErro){
+        if( this.state.cadastrarErroMsg.length > 0){
             this.validaSenhas();
             this.validaForm();
             return;
@@ -69,6 +69,8 @@ export default class Register extends React.Component {
         || this.state.email == ""
         || this.state.senha == ""){
             this.setState({cadastrarErro: true, cadastrarErroMsg:["Informe todos os campos."] });
+        }else{
+            this.setState({cadastrarErro: 'none', cadastrarErroMsg:[] });
         }
     }
 
