@@ -1,65 +1,90 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
-import api from '../../Services/api';
+import logoImg from '../../img/logo.png';
+import { ProfileService } from '../../Services';
 import './styles.css';
 
-import logoImg from '../../img/logo.png';
+export default class Register extends React.Component {
 
-export default function Register() {
-    const [nome, setNome] = useState('');
-    const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
-    const [repeteSenha, setRepeteSenha] = useState('');
+    constructor(props) {
+        super(props);
+        this.state = {
+            nome: "",
+            email: "",
+            senha: "",
+            cadastrarErro: "none",
+            cadastrarErroMsg:""
+        };
+    }
 
-    const history = useHistory(); //navegação através de uma função javascript, quando não se pode colocar o link do ReactRouter Dom
+    componentDidMount(){
+        if(ProfileService.IsValideSession()){
+           this.gotoHome();
+        }
+    }
 
-    async function handleRegister(e) {
+
+    handleRegister(e){
         e.preventDefault();
 
-        const data = {
-            nome,
-            email,
-            senha,
-            repeteSenha,
-        };
-
-        try {
-            const response = await api.post('ongs', data);
-
-            alert(`Seu ID de acesso: ${response.data.id}`);
-
-            history.push('/auth');
-        } catch (err) {
-            alert('Erro no cadastro. Tente novamente.');
-        }
-
+        ProfileService.Create({nome:this.state.nome, email:this.state.email, senha:this.state.senha})
+        .then( res =>{
+            if(res.data.status == false){
+                this.showErrors(res);
+            }else{
+                alert("Cadastro Efetuado com sucesso!");
+                this.gotoHome();
+            }
+            console.log(res.data.status);
+        })
+        .catch(err =>{
+            if(err.response && err.response.data){
+                this.showErrors(err.response);
+            }
+            console.log(err);
+            console.log(err.response);
+        });
     }
-    return (
-        <div className="register-container">
-            <div className="content">
-                <section>
-                    <img src={logoImg} alt="Seja um Herói"/>
 
-                    <h1>Cadastro</h1>
-                    <p>Faça seu cadastro e torne-se um herói, adotanto um pet e tirando ele das ruas.</p>
+    showErrors(erros){
+        this.setState({loginErro: true, loginErroMsg:erros.data.erros.map(x => <p>{x}</p>) });
+    }
 
-                    <Link className="back-link" to="/auth">
-                        <FiArrowLeft size={16} color="#E02041"/>
-                        Já tenho cadastro
-                    </Link>
-                </section>
+    gotoHome(){
+        this.props.history.push('/home');
+    }//navegação através de uma função javascript, quando não se pode colocar o link do ReactRouter Dom
 
-                <form onSubmit={handleRegister}>
-                    <input placeholder="Nome" value={nome} onChange={e => setNome(e.target.value)} />
-                    <input type="email" placeholder="E-mail" value={email} onChange={e => setEmail(e.target.value)}/>
-                    
-                    <hr />
-                    <input type="password" placeholder="Senha" value={senha} onChange={e => setSenha(e.target.value)}/>
-                    <input type="password" placeholder="Repetir Senha" value={repeteSenha} onChange={e => setRepeteSenha(e.target.value)}/>
-                    <button className="button" type="submit">Cadastrar</button>
-                </form>
+
+    render(){
+
+        return (
+            <div className="register-container">
+                <div className="content">
+                    <section>
+                        <img src={logoImg} alt="Seja um Herói"/>
+    
+                        <h1>Cadastro</h1>
+                        <p>Faça seu cadastro e torne-se um herói, adotanto um pet e tirando ele das ruas.</p>
+    
+                        <Link className="back-link" to="/auth">
+                            <FiArrowLeft size={16} color="#E02041"/>
+                            Já tenho cadastro
+                        </Link>
+                    </section>
+    
+                    <form onSubmit={this.handleRegister}>
+                        <input placeholder="Nome" value={this.nome} onChange={ (e) =>{ this.setState({nome: e.target.value})}} required={true}/>
+                        <input type="email" placeholder="E-mail" value={this.email} onChange={ (e) =>{ this.setState({email: e.target.value})}} required={true}/>
+                        
+                        <hr />
+                        <input type="password" placeholder="Senha" value={this.senha} onChange={ (e) =>{ this.setState({senha: e.target.value})}}/>
+                        {/* <input type="password" placeholder="Repetir Senha" value={repeteSenha} onChange={e => setRepeteSenha(e.target.value)}/> */}
+                        <button className="button" type="submit">Cadastrar</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
+
 }
