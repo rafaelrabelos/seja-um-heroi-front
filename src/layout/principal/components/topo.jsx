@@ -1,28 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import {IncidentService, AuthService, ProfileService} from 'Services';
+import React from 'react';
+import { Redirect } from 'react-router-dom';
+import { AuthService } from 'Services';
 import logoImg from 'img/logo.png';
+import { withRouter } from "react-router";
 import 'layout/principal/styles/topo.css';
 
-export default function Topo() {
-    const [incidents, setIncidents] = useState([]);
-    const ongId = AuthService.GetSessionData('ongId');
-    const ongName = AuthService.GetSessionData('ongName');
-    const history = useHistory();
+class Topo extends React.Component {
 
-    useEffect(() => {
-        ProfileService.GetProfile()
-        .then( res => setIncidents(res.data))
-        .catch( err => console.log(err));
-    }, [ongId]);
+    constructor(props) {
+        super(props);
+        this.state = {
+            userName: "",
+            userEmail: "",
+            userIsLoged: AuthService.IsValideSession()
+        };
+    }
 
-    const handleLogout = () => AuthService.Logout().then(history.push('/'));
+    componentDidMount(){
+        console.log(this.props)
+        console.log(this.state.userIsLoged)
+        if(this.state.userIsLoged){
+            this.setState({
+            userName: sessionStorage.getItem("nome"),
+            userEmail: sessionStorage.getItem("email")
+            });
+        }else{
+            this.handleLogout();
+        }
+    }
 
-    const userName = () => sessionStorage.getItem("nome");
-    const userEmail = () => sessionStorage.getItem("email");
+    handleLogout = () => AuthService.Logout()
+    .then( () =>{
+        this.props.history.push('/auth')
+    });
 
-    return(
+    render(){
+        return(
         <>
+         { this.state.userIsLoged ? "" : <Redirect to="/auth"></Redirect>}
         <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light" style={{borderBottomStyle:"ridge"}}>
             <nav class="navbar navbar-light bg-light">
                 <a class="navbar-brand" href="#">
@@ -77,11 +92,11 @@ export default function Topo() {
                                                     />
                                                 </div>
                                             </div>
-                                            <small className="username">{userName()}</small>
+                                            <small className="username">{this.state.userName}</small>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown">
                                             <div className="col col-md-12 user-description">
-                                                <small>{userName()}({userEmail()})</small>
+                                                <small>{this.state.userName}({this.state.userEmail})</small>
                                             </div>
                                             <div class="dropdown-divider"></div>
                                             <a className="dropdown-item" href="#">
@@ -91,7 +106,7 @@ export default function Topo() {
                                                 </div>
                                             </a>
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#" onClick={ () => handleLogout()}>
+                                            <a class="dropdown-item" href="#" onClick={ () => this.handleLogout()}>
                                                 <div className="row">
                                                     <div className="col col-md-2">
                                                         <span style={{fontsize: "3em", color: "Tomato"}}>
@@ -111,5 +126,9 @@ export default function Topo() {
                 </div>
             </div>
         </nav></>
-    );
+        );
+    }
+
 }
+
+export default withRouter(Topo)

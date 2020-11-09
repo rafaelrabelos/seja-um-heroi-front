@@ -18,7 +18,7 @@ export default class Logon extends React.Component {
 
     componentDidMount(){
         if(AuthService.IsValideSession()){
-           // this.gotoHome();
+           this.gotoHome();
         }
     }
 
@@ -49,7 +49,7 @@ export default class Logon extends React.Component {
     }
 
     gotoHome(){
-        this.props.history.push('/home');
+        this.props.history.push('/hero');
     }
 
     render(){
