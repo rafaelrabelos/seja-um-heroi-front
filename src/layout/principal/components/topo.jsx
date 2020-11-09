@@ -17,8 +17,6 @@ class Topo extends React.Component {
     }
 
     componentDidMount(){
-        console.log(this.props)
-        console.log(this.state.userIsLoged)
         if(this.state.userIsLoged){
             this.setState({
             userName: sessionStorage.getItem("nome"),

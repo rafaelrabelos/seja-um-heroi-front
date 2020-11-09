@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import logoImg from '../../img/logo.png';
 import { ProfileService } from '../../Services';
+import {AuthService} from '../../Services';
 import './styles.css';
 
 export default class Register extends React.Component {
@@ -13,20 +14,22 @@ export default class Register extends React.Component {
             nome: "",
             email: "",
             senha: "",
+            senhaRepetida: "",
             cadastrarErro: "none",
             cadastrarErroMsg:""
         };
     }
 
-    componentDidMount(){
-        if(ProfileService.IsValideSession()){
-           this.gotoHome();
-        }
-    }
-
 
     handleRegister(e){
+
         e.preventDefault();
+
+        if( this.state.cadastrarErro){
+            this.validaSenhas();
+            this.validaForm();
+            return;
+        }
 
         ProfileService.Create({nome:this.state.nome, email:this.state.email, senha:this.state.senha})
         .then( res =>{
@@ -34,7 +37,8 @@ export default class Register extends React.Component {
                 this.showErrors(res);
             }else{
                 alert("Cadastro Efetuado com sucesso!");
-                this.gotoHome();
+                AuthService.Login({email: this.state.email, senha: this.state.senha})
+                .then( () => this.gotoAuth());
             }
             console.log(res.data.status);
         })
@@ -48,12 +52,29 @@ export default class Register extends React.Component {
     }
 
     showErrors(erros){
-        this.setState({loginErro: true, loginErroMsg:erros.data.erros.map(x => <p>{x}</p>) });
+        this.setState({cadastrarErro: true, cadastrarErroMsg:erros.data.erros.map(x => <p>{x}</p>) });
     }
 
-    gotoHome(){
-        this.props.history.push('/home');
-    }//navegação através de uma função javascript, quando não se pode colocar o link do ReactRouter Dom
+    validaSenhas(){
+        if(this.state.senha != this.state.senhaRepetida){
+            this.setState({cadastrarErro: true, cadastrarErroMsg:["As senha não são iguais"] });
+
+        }else{
+            this.setState({cadastrarErro: 'none', cadastrarErroMsg:[] });
+        }
+    }
+
+    validaForm(){
+        if(this.state.nome == ""
+        || this.state.email == ""
+        || this.state.senha == ""){
+            this.setState({cadastrarErro: true, cadastrarErroMsg:["Informe todos os campos."] });
+        }
+    }
+
+    gotoAuth(){
+        this.props.history.push('/auth');
+    }
 
 
     render(){
@@ -73,14 +94,54 @@ export default class Register extends React.Component {
                         </Link>
                     </section>
     
-                    <form onSubmit={this.handleRegister}>
-                        <input placeholder="Nome" value={this.nome} onChange={ (e) =>{ this.setState({nome: e.target.value})}} required={true}/>
-                        <input type="email" placeholder="E-mail" value={this.email} onChange={ (e) =>{ this.setState({email: e.target.value})}} required={true}/>
+                    <form 
+                    onSubmit={this.handleRegister}>
+                        <input 
+                        placeholder="Nome" 
+                        value={this.nome} 
+                        onChange={ (e) =>{ this.setState({nome: e.target.value} )}} 
+                        required={true}
+                        />
+
+                        <input 
+                        type="email" 
+                        placeholder="E-mail" 
+                        value={this.email} 
+                        onChange={ (e) =>{ this.setState({email: e.target.value} )}} 
+                        required={true}
+                        />
                         
                         <hr />
-                        <input type="password" placeholder="Senha" value={this.senha} onChange={ (e) =>{ this.setState({senha: e.target.value})}}/>
-                        {/* <input type="password" placeholder="Repetir Senha" value={repeteSenha} onChange={e => setRepeteSenha(e.target.value)}/> */}
-                        <button className="button" type="submit">Cadastrar</button>
+                        <input 
+                        type="password" 
+                        placeholder="Senha" 
+                        value={this.senha} 
+                        onChange={ (e) =>{ this.setState({senha: e.target.value})}}
+                        />
+
+                        <input 
+                        type="password" 
+                        placeholder="Repetir Senha" 
+                        value={this.state.senhaRepetida} 
+                        onChange={e => this.setState({senhaRepetida: e.target.value}, ()=> this.validaSenhas())}
+                        />
+
+                        <div class="form-row" style={{display:this.state.cadastrarErro}}>
+                            <div class="col-lg-12">
+                                <br />
+                            <div className="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Ooops!  </strong>{this.state.cadastrarErroMsg} 
+                                <button type="button" onClick={() => this.setState({cadastrarErroMsg:"", cadastrarErro:"none" })} class="close"  aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            </div>
+                        </div>
+
+                        <button 
+                        className="button" 
+                        onClick={(e) => this.handleRegister(e)} 
+                        type="button">Cadastrar</button>
                     </form>
                 </div>
             </div>

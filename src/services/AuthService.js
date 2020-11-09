@@ -37,7 +37,6 @@ export function IsValideSession(){
 
     if(sessionStorage.getItem("token") !== null){
         var decoded = jwt_decode(token);
-        console.log(decoded)
         SessionInit({
             user:{
                 nome: decoded.user.nome,
