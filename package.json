@@ -4,6 +4,9 @@
   "description": "React - Be a Hero",
   "main": "index.js",
   "private": true,
+  "engines": {
+    "node": "12.x"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
