@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import { AuthService } from '../../../Services/AuthService';
+import { AuthService } from './../../../Services';
 import logoImg from 'img/logo.png';
 import { withRouter } from "react-router";
 import 'layout/principal/styles/topo.css';
