@@ -13,12 +13,12 @@ export default function Rodape() {
 					<span><img src={logoImg} width="100" height="30" alt="" /></span>
 					<p className="footer-links">
 						<a href="/" className="link-1">Home</a>
-						<a href="#">Blog</a>
-						<a href="#">Cases</a>
-						<a href="#">Números</a>
-						<a href="#">Contribuir</a>
-						<a href="#">Sobre-nos</a>
-						<a href="#">Contato</a>
+						<a href="/auth/blog">Blog</a>
+						<a href="/auth/cases">Cases</a>
+						<a href="/auth/numeros">Números</a>
+						<a href="/auth/contribuir">Contribuir</a>
+						<a href="/auth/sobre">Sobre-nos</a>
+						<a href="/auth/contato">Contato</a>
 					</p>
 					<p className="footer-company-name">
 						Seja um Herói, 2020 © Todos os direitos Reservados.
@@ -37,8 +37,8 @@ export default function Rodape() {
 						Buscamos facilitar o trabalho dos heróis.
 					</p>
 					<div className="footer-icons">
-						<a href="#"><i className="fab fa-facebook-f"></i></a>
-						<a href="#"><i className="fab fa-twitter"></i></a>
+						<a href="https://www.facebook.com"><i className="fab fa-facebook-f"></i></a>
+						<a href="https://twitter.com"><i className="fab fa-twitter"></i></a>
 					</div>
 				</div>
 			</Row>

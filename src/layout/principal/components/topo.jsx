@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import { AuthService } from 'Services';
+import { AuthService } from '../../../Services';
 import logoImg from 'img/logo.png';
 import { withRouter } from "react-router";
 import 'layout/principal/styles/topo.css';
@@ -38,7 +38,7 @@ class Topo extends React.Component {
          { this.state.userIsLoged ? "" : <Redirect to="/auth"></Redirect>}
         <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light" style={{borderBottomStyle:"ridge"}}>
             <nav class="navbar navbar-light bg-light">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/hero">
                     <img src={logoImg} width="100" height="30" alt="" />
                 </a>
             </nav>
@@ -48,20 +48,20 @@ class Topo extends React.Component {
             <div class="collapse navbar-collapse order-1 order-md-0 dual-collapse2" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/hero">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Cadastrar
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Cadastrar Caso</a>
+                        <a class="dropdown-item" href="/hero">Cadastrar Caso</a>
                         <a class="dropdown-item" href="/hero/cadastrar">Cadastrar Pets</a>
-                        <a class="dropdown-item" href="#">Cadastrar Usuário</a>
+                        <a class="dropdown-item" href="/hero">Cadastrar Usuário</a>
                     </div>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Agendar castração</a>
+                    <a class="nav-link" href="/hero">Agendar castração</a>
                     </li>
                 </ul>
                 <div class="mx-auto order-0">
@@ -104,7 +104,7 @@ class Topo extends React.Component {
                                                 </div>
                                             </a>
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#" onClick={ () => this.handleLogout()}>
+                                            <a class="dropdown-item" href="/hero" onClick={ () => this.handleLogout()}>
                                                 <div className="row">
                                                     <div className="col col-md-2">
                                                         <span style={{fontsize: "3em", color: "Tomato"}}>

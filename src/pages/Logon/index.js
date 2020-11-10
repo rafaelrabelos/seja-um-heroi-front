@@ -27,7 +27,7 @@ export default class Logon extends React.Component {
 
         AuthService.Login({email:this.state.email, senha:this.state.senha})
         .then( res =>{
-            if(res.data.status == false){
+            if(res.data.status === false){
                 this.showErrors(res);
             }else{
                 alert("Login Efetuado com sucesso!");
@@ -59,7 +59,7 @@ export default class Logon extends React.Component {
                     <div class="row no-gutters">
                         <div class="col-lg-6 col-md-6">
                             <div class="col-lg-12 col-md-10">
-                                <img src={petImg} class="img-fluid" />
+                                <img alt="dog-banner" src={petImg} class="img-fluid" />
                             </div>
                             <div class="col-lg-12 col-md-8">
                                 <p class="centertext descriptiontext">

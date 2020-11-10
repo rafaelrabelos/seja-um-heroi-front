@@ -11,7 +11,7 @@ export default function Register() {
     const [informacoes, setInformacoes] = useState('');
     const [foto, setFoto] = useState('');
 
-    const history = useHistory(); //navegação através de uma função javascript, quando não se pode colocar o link do ReactRouter Dom
+    const history = useHistory();
 
     async function handleRegister(e) {
         e.preventDefault();
@@ -69,7 +69,7 @@ export default function Register() {
                         <input type="file" class="form-control-file" id="animalPicture" value={foto} onChange={e => setFoto(e.target.value)}/>
                     </div>
                     <div class="text-right">
-                        <button type="submit" class="btn btn-danger">Salvar</button>
+                        <button type="submit" class="btn btn-danger" onClick={() => handleRegister()}>Salvar</button>
                     </div>
                 </form>
             </div>

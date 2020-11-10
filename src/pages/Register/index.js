@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import logoImg from '../../img/logo.png';
 import { ProfileService } from '../../Services';
@@ -33,7 +33,7 @@ export default class Register extends React.Component {
 
         ProfileService.Create({nome:this.state.nome, email:this.state.email, senha:this.state.senha})
         .then( res =>{
-            if(res.data.status == false){
+            if(res.data.status === false){
                 this.showErrors(res);
             }else{
                 alert("Cadastro Efetuado com sucesso!");
@@ -56,7 +56,7 @@ export default class Register extends React.Component {
     }
 
     validaSenhas(){
-        if(this.state.senha != this.state.senhaRepetida){
+        if(this.state.senha !== this.state.senhaRepetida){
             this.setState({cadastrarErro: true, cadastrarErroMsg:["As senha não são iguais"] });
 
         }else{
@@ -65,9 +65,9 @@ export default class Register extends React.Component {
     }
 
     validaForm(){
-        if(this.state.nome == ""
-        || this.state.email == ""
-        || this.state.senha == ""){
+        if(this.state.nome === ""
+        || this.state.email === ""
+        || this.state.senha === ""){
             this.setState({cadastrarErro: true, cadastrarErroMsg:["Informe todos os campos."] });
         }else{
             this.setState({cadastrarErro: 'none', cadastrarErroMsg:[] });
