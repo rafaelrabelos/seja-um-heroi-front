@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import api from '../../Services/api';
+import api from '../../services/api';
 import './styles.css';
 
 export default function Register() {

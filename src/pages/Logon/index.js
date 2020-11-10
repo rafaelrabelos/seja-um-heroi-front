@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthService } from '../../Services';
+import { AuthService } from '../../services';
 import petImg from '../../img/pets.jpg';
 import logoImg from '../../img/logo.png';
 import './styles.css';

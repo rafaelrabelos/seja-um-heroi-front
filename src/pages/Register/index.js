@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import logoImg from '../../img/logo.png';
-import { ProfileService } from '../../Services';
-import {AuthService} from '../../Services';
+import { ProfileService } from '../../services';
+import {AuthService} from '../../services';
 import './styles.css';
 
 export default class Register extends React.Component {
