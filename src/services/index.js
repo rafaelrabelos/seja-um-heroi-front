@@ -1,4 +1,4 @@
-import * as AuthService from './AuthService';
-import * as ProfileService from './ProfileService';
+import * as AuthService from './authService';
+import * as ProfileService from './profileService';
 
 export {AuthService, ProfileService}
