@@ -128,12 +128,12 @@ export default class Register extends React.Component {
                         onChange={e => this.setState({senhaRepetida: e.target.value}, ()=> this.validaSenhas())}
                         />
 
-                        <div class="form-row" style={{display:this.state.cadastrarErro}}>
-                            <div class="col-lg-12">
+                        <div className="form-row" style={{display:this.state.cadastrarErro}}>
+                            <div className="col-lg-12">
                                 <br />
                             <div className="alert alert-warning alert-dismissible fade show" role="alert">
                                 <strong>Ooops!  </strong>{this.state.cadastrarErroMsg} 
-                                <button type="button" onClick={() => this.setState({cadastrarErroMsg:"", cadastrarErro:"none" })} class="close"  aria-label="Close">
+                                <button type="button" onClick={() => this.setState({cadastrarErroMsg:"", cadastrarErro:"none" })} className="close"  aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>

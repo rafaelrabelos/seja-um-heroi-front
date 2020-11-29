@@ -7,7 +7,7 @@ export default function Rodape() {
 
     return(
         <>
-        <footer class="footer-distributed">
+        <footer className="footer-distributed">
 			<Row>
 				<div className="footer-left">
 					<span><img src={logoImg} width="100" height="30" alt="" /></span>
