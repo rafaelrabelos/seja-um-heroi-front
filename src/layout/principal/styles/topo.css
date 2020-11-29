@@ -3,7 +3,6 @@
     height: 50px;
     overflow: hidden;
   }
-  
   .circle-img img {
     height: 100%;
     transform: translateX(-50%);
