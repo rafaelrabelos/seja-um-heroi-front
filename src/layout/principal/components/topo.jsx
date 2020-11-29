@@ -98,7 +98,7 @@ class Topo extends React.Component {
                                                 <small>{this.state.userName}({this.state.userEmail})</small>
                                             </div>
                                             <div class="dropdown-divider"></div>
-                                            <a className="dropdown-item" href="/#">
+                                            <a className="dropdown-item" href="/hero/profile">
                                                 <div className="row">
                                                     <div className="col col-md-2"><i className="fa fa-user-circle"></i></div>
                                                     <div className="col col-md-2">Perfil</div>
