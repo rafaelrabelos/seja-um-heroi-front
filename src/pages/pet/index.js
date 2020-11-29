@@ -51,38 +51,38 @@ export default function Register() {
 
     return (
         <>
-        <div class="container">
-            <div class="card" style={{margin: "2% 20%"}}>
-                <form class="card-body">
-                    <div class="form-group">
-                        <label for="animalName">Nome do animal</label>
-                        <input type="text" class="form-control" id="animalName" value={nome} onChange={e => setNome(e.target.value)} aria-describedby="emailHelp"/>
+        <div className="container">
+            <div className="card" style={{margin: "2% 20%"}}>
+                <form className="card-body">
+                    <div className="form-group">
+                        <label htmlFor="animalName">Nome do animal</label>
+                        <input type="text" className="form-control" id="animalName" value={nome} onChange={e => setNome(e.target.value)} aria-describedby="emailHelp"/>
                     </div>
-                    <div class="form-group">
-                        <label for="animalRace">Raça</label>
-                        <input type="password" class="form-control" id="animalRace" value={raca} onChange={e => setRaca(e.target.value)}/>
+                    <div className="form-group">
+                        <label htmlFor="animalRace">Raça</label>
+                        <input type="password" className="form-control" id="animalRace" value={raca} onChange={e => setRaca(e.target.value)}/>
                     </div>
-                    <div class="form-group">
-                        <label for="animalSize">Tamanho</label>
-                        <input type="password" class="form-control" id="animalSize" value={tamanho} onChange={e => setTamanho(e.target.value)}/>
+                    <div className="form-group">
+                        <label htmlFor="animalSize">Tamanho</label>
+                        <input type="password" className="form-control" id="animalSize" value={tamanho} onChange={e => setTamanho(e.target.value)}/>
                     </div>
-                    <div class="form-group">
-                        <label for="animalRace">Vacinas em dia: </label>
-                        <select class="form-control col-md-2" value={vacina} onChange={e => setVacina(e.target.value)}>
-                            <option selected value="1">Sim</option>
-                            <option value="0">Não</option>
+                    <div className="form-group">
+                        <label htmlFor="animalRace">Vacinas em dia: </label>
+                        <select className="form-control col-md-2" value={vacina} onChange={e => setVacina(e.target.value)}>
+                            <option value={{value: 1, label: "sim"}} > Sim</option>
+                            <option value={{value: 0, label: "não"}} > Não</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Informações adicionais</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value={informacoes} onChange={e => setInformacoes(e.target.value)}></textarea>
+                    <div className="form-group">
+                        <label htmlFor="exampleFormControlTextarea1">Informações adicionais</label>
+                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" value={informacoes} onChange={e => setInformacoes(e.target.value)}></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="animalPicture">Foto</label>
-                        <input type="file" class="form-control-file" id="animalPicture" value={foto} onChange={e => setFoto(e.target.value)}/>
+                    <div className="form-group">
+                        <label htmlFor="animalPicture">Foto</label>
+                        <input type="file" className="form-control-file" id="animalPicture" value={foto} onChange={e => setFoto(e.target.value)}/>
                     </div>
-                    <div class="text-right">
-                        <button type="submit" class="btn btn-danger" onClick={() => handleRegister()}>Salvar</button>
+                    <div className="text-right">
+                        <button type="submit" className="btn btn-danger" onClick={() => handleRegister()}>Salvar</button>
                     </div>
                 </form>
             </div>

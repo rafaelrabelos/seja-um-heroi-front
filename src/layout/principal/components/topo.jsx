@@ -36,51 +36,51 @@ class Topo extends React.Component {
         return(
         <>
          { this.state.userIsLoged ? "" : <Redirect to="/auth"></Redirect>}
-        <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light" style={{borderBottomStyle:"ridge"}}>
-            <nav class="navbar navbar-light bg-light">
-                <a class="navbar-brand" href="/hero">
+        <nav className="navbar fixed-top navbar-expand-md navbar-light bg-light" style={{borderBottomStyle:"ridge"}}>
+            <nav className="navbar navbar-light bg-light">
+                <a className="navbar-brand" href="/hero">
                     <img src={logoImg} width="100" height="30" alt="" />
                 </a>
             </nav>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse order-1 order-md-0 dual-collapse2" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                    <a class="nav-link" href="/hero">Home <span class="sr-only">(current)</span></a>
+            <div className="collapse navbar-collapse order-1 order-md-0 dual-collapse2" id="navbarSupportedContent">
+                <ul className="navbar-nav mr-auto">
+                    <li className="nav-item active">
+                    <a className="nav-link" href="/hero">Home <span className="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li className="nav-item dropdown">
+                    <a className="nav-link dropdown-toggle" href="/#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Cadastrar
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/hero">Cadastrar Caso</a>
-                        <a class="dropdown-item" href="/hero/cadastrar">Cadastrar Pets</a>
-                        <a class="dropdown-item" href="/hero">Cadastrar Usuário</a>
+                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a className="dropdown-item" href="/hero">Cadastrar Caso</a>
+                        <a className="dropdown-item" href="/hero/cadastrar">Cadastrar Pets</a>
+                        <a className="dropdown-item" href="/hero">Cadastrar Usuário</a>
                     </div>
                     </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="/hero">Agendar castração</a>
+                    <li className="nav-item">
+                    <a className="nav-link" href="/hero">Agendar castração</a>
                     </li>
                 </ul>
-                <div class="mx-auto order-0">
-                    <form class="form-inline my-2 my-lg-0">
-                        <div class="input-group input-group-sm mb-3">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar"/>
-                            <button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+                <div className="mx-auto order-0">
+                    <form className="form-inline my-2 my-lg-0">
+                        <div className="input-group input-group-sm mb-3">
+                            <input className="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar"/>
+                            <button className="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit"><i className="fa fa-search"></i></button>
                         </div>
                     </form>
                 </div>
-                <div class="w-10 order-3 dual-collapse2">
-                    <div class="row text-center ">
-                        <div class="col-md-6 mb-4 profile-menu ">
-                        <ul class="navbar-nav mr-auto ">
-                            <li class="nav-item dropdown">
+                <div className="w-10 order-3 dual-collapse2">
+                    <div className="row text-center ">
+                        <div className="col-md-6 mb-4 profile-menu ">
+                        <ul className="navbar-nav mr-auto ">
+                            <li className="nav-item dropdown">
                                 
                                 <div className="row">
                                     <div className="col col-md-12">
-                                        <a class="nav-link dropdown-toggle" href="/#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a className="nav-link dropdown-toggle" href="/#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <div className="row">
                                                 <div className="col col-md-12">
                                                     <img 
@@ -93,19 +93,19 @@ class Topo extends React.Component {
                                             </div>
                                             <small className="username">{this.state.userName}</small>
                                         </a>
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown">
+                                        <div className="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown">
                                             <div className="col col-md-12 user-description">
                                                 <small>{this.state.userName}({this.state.userEmail})</small>
                                             </div>
-                                            <div class="dropdown-divider"></div>
+                                            <div className="dropdown-divider"></div>
                                             <a className="dropdown-item" href="/hero/profile">
                                                 <div className="row">
                                                     <div className="col col-md-2"><i className="fa fa-user-circle"></i></div>
                                                     <div className="col col-md-2">Perfil</div>
                                                 </div>
                                             </a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="/hero" onClick={ () => this.handleLogout()}>
+                                            <div className="dropdown-divider"></div>
+                                            <a className="dropdown-item" href="/hero" onClick={ () => this.handleLogout()}>
                                                 <div className="row">
                                                     <div className="col col-md-2">
                                                         <span style={{fontsize: "3em", color: "Tomato"}}>

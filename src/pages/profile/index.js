@@ -20,10 +20,10 @@ export default class Profile extends React.Component {
 
      render(){return(
         <>
-        <div class="container form-inline">
-            <div class="card" style={{width: "100%"}}>
+        <div className="container form-inline">
+            <div className="card" style={{width: "100%"}}>
             
-            <div class="card-header">
+            <div className="card-header">
             <div className="row">
                 <div className="col col-md-8" style={{margin:"1%"}}>
                     <img 
@@ -39,10 +39,10 @@ export default class Profile extends React.Component {
                 
             </div>
             </div>
-            <div class="card-body">
-                <h5 class="card-title">Bio</h5>
-                <p class="card-text"> -- </p>
-                <a href="/#" class="btn btn-primary">Editar</a>
+            <div className="card-body">
+                <h5 className="card-title">Bio</h5>
+                <p className="card-text"> -- </p>
+                <a href="/#" className="btn btn-primary">Editar</a>
                 
             </div>
             </div>
