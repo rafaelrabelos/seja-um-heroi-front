@@ -81,72 +81,75 @@ export default class Register extends React.Component {
 
     render(){
 
-        return (
-            <div className="register-container">
+        return (            
+            <section class="form my-4 mx-5">
+                <div className="register-container">
                 <div className="content">
-                    <section>
-                        <img src={logoImg} alt="Seja um Herói"/>
-    
-                        <h1>Cadastro</h1>
-                        <p>Faça seu cadastro e torne-se um herói, adotanto um pet e tirando ele das ruas.</p>
-    
-                        <Link className="back-link" to="/auth">
-                            <FiArrowLeft size={16} color="#E02041"/>
-                            Já tenho cadastro
-                        </Link>
-                    </section>
-    
-                    <form 
-                    onSubmit={this.handleRegister}>
-                        <input 
-                        placeholder="Nome" 
-                        value={this.nome} 
-                        onChange={ (e) =>{ this.setState({nome: e.target.value} )}} 
-                        required={true}
-                        />
+                        <section>
+                            <img src={logoImg} alt="Seja um Herói"/>
+        
+                            <h1>Cadastro</h1>
+                            <p>Faça seu cadastro e torne-se um herói, adotanto um pet e tirando ele das ruas.</p>
+        
+                            <Link className="back-link" to="/auth">
+                                <FiArrowLeft size={16} color="#E02041"/>
+                                Já tenho cadastro
+                            </Link>
+                        </section>
+        
+                        <form 
+                        onSubmit={this.handleRegister}>
+                            <input 
+                            placeholder="Nome" 
+                            value={this.nome} 
+                            onChange={ (e) =>{ this.setState({nome: e.target.value} )}} 
+                            required={true}
+                            />
 
-                        <input 
-                        type="email" 
-                        placeholder="E-mail" 
-                        value={this.email} 
-                        onChange={ (e) =>{ this.setState({email: e.target.value} )}} 
-                        required={true}
-                        />
-                        
-                        <hr />
-                        <input 
-                        type="password" 
-                        placeholder="Senha" 
-                        value={this.senha} 
-                        onChange={ (e) =>{ this.setState({senha: e.target.value})}}
-                        />
+                            <input 
+                            type="email" 
+                            placeholder="E-mail" 
+                            value={this.email} 
+                            onChange={ (e) =>{ this.setState({email: e.target.value} )}} 
+                            required={true}
+                            />
+                            
+                            <hr />
+                            <input 
+                            type="password" 
+                            placeholder="Senha" 
+                            value={this.senha} 
+                            onChange={ (e) =>{ this.setState({senha: e.target.value})}}
+                            />
 
-                        <input 
-                        type="password" 
-                        placeholder="Repetir Senha" 
-                        value={this.state.senhaRepetida} 
-                        onChange={e => this.setState({senhaRepetida: e.target.value}, ()=> this.validaSenhas())}
-                        />
+                            <input 
+                            type="password" 
+                            placeholder="Repetir Senha" 
+                            value={this.state.senhaRepetida} 
+                            onChange={e => this.setState({senhaRepetida: e.target.value}, ()=> this.validaSenhas())}
+                            />
 
-                        <div className="form-row" style={{display:this.state.cadastrarErro}}>
-                            <div className="col-lg-12">
-                                <br />
-                            <div className="alert alert-warning alert-dismissible fade show" role="alert">
-                                <strong>Ooops!  </strong>{this.state.cadastrarErroMsg} 
-                                <button type="button" onClick={() => this.setState({cadastrarErroMsg:"", cadastrarErro:"none" })} className="close"  aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                            <div className="form-row" style={{display:this.state.cadastrarErro}}>
+                                <div className="col-lg-12">
+                                    <br />
+                                <div className="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>Ooops!  </strong>{this.state.cadastrarErroMsg} 
+                                    <button type="button" onClick={() => this.setState({cadastrarErroMsg:"", cadastrarErro:"none" })} className="close"  aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                </div>
                             </div>
-                            </div>
-                        </div>
 
-                        <button 
-                        className="button" 
-                        onClick={(e) => this.handleRegister(e)} 
-                        type="button">Cadastrar</button>
-                    </form>
+                            <button 
+                            className="button" 
+                            onClick={(e) => this.handleRegister(e)} 
+                            type="button">Cadastrar</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
+            </section>
+            
         );
     }
 

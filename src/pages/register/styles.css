@@ -1,9 +1,17 @@
+
 .register-container {
+    border: rgb(0, 0, 0);
+    border-style: ridge;
+    border-color: #9e9e9e33;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 9px 9px 16px #808080b8;
+    margin-bottom: 10% !important;
+
     width: 100%;
     max-width: 1120px;
-    height: 100vh;
+    height: 60vh;
     margin: 0 auto;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,11 +19,7 @@
 
 .register-container .content {
     width: 100%;
-    padding: 96px;
-    background: #f0f0f5;
-    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-
+    padding: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
