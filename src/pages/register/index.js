@@ -63,7 +63,7 @@ export default class Register extends React.Component {
             errors = [`${erros.status} ${erros.statusText} `];
         }
 
-        this.setState({ cadastrarErro: true, cadastrarErroMsg: errors.map((x, idx) => <p key={idx}>{x}</p>) });
+        this.setState({ cadastrarErro: true, cadastrarErroMsg: errors.map((x, idx) => <p key={idx+"logon"}>{x}</p>) });
     }
 
     validaSenhas() {
