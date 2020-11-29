@@ -4,6 +4,7 @@ import { FiArrowLeft } from 'react-icons/fi';
 import logoImg from '../../img/logo.png';
 import { ProfileService } from '../../services';
 import {AuthService} from '../../services';
+import Loading from '../../components/loading'
 import './styles.css';
 
 export default class Register extends React.Component {
@@ -16,18 +17,20 @@ export default class Register extends React.Component {
             senha: "",
             senhaRepetida: "",
             cadastrarErro: "none",
-            cadastrarErroMsg:""
+            cadastrarErroMsg:"",
+            loading: false
         };
     }
-
 
     handleRegister(e){
 
         e.preventDefault();
+        this.setState({loading: true});
 
         if( this.state.cadastrarErroMsg.length > 0){
             this.validaSenhas();
             this.validaForm();
+            this.setState({loading: false});
             return;
         }
 
@@ -40,7 +43,6 @@ export default class Register extends React.Component {
                 AuthService.Login({email: this.state.email, senha: this.state.senha})
                 .then( () => this.gotoAuth());
             }
-            console.log(res.data.status);
         })
         .catch(err =>{
             if(err.response && err.response.data){
@@ -49,10 +51,19 @@ export default class Register extends React.Component {
             console.log(err);
             console.log(err.response);
         });
+        this.setState({loading: false});
     }
 
     showErrors(erros){
-        this.setState({cadastrarErro: true, cadastrarErroMsg:erros.data.erros.map(x => <p>{x}</p>) });
+        let errors = [];
+
+        if(erros.data && Array.isArray(erros.data.erros)){
+            errors = erros.data.erros;
+        }else{
+            errors = [`${erros.status} ${erros.statusText} `];
+        }
+
+        this.setState({cadastrarErro: true, cadastrarErroMsg: errors.map( (x, idx) => <p key={idx}>{x}</p>) });
     }
 
     validaSenhas(){
@@ -82,7 +93,7 @@ export default class Register extends React.Component {
     render(){
 
         return (            
-            <section class="form my-4 mx-5">
+            <section className="form my-4 mx-5">
                 <div className="register-container">
                 <div className="content">
                         <section>
@@ -140,11 +151,17 @@ export default class Register extends React.Component {
                                 </div>
                                 </div>
                             </div>
-
-                            <button 
-                            className="button" 
-                            onClick={(e) => this.handleRegister(e)} 
-                            type="button">Cadastrar</button>
+                            
+                                <button 
+                                disabled = {this.state.loading}
+                                className="button" 
+                                onClick={(e) => this.handleRegister(e)} 
+                                type="button">
+                                    <span className="" role="status" aria-hidden="true">
+                                    { !this.state.loading ? "Cadastrar" :<Loading loading ={this.state.loading} />}
+                                    </span> 
+                                    
+                                </button>                            
                         </form>
                     </div>
                 </div>
@@ -152,5 +169,4 @@ export default class Register extends React.Component {
             
         );
     }
-
 }

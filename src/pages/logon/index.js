@@ -45,7 +45,15 @@ export default class Logon extends React.Component {
     }
 
     showErrors(erros){
-        this.setState({loginErro: true, loginErroMsg:erros.data.erros.map(x => <p>{x}</p>) });
+        let errors = [];
+
+        if(erros.data && Array.isArray(erros.data.erros)){
+            errors = erros.data.erros;
+        }else{
+            errors = [`${erros.status} ${erros.statusText} `];
+        }
+
+        this.setState({cadastrarErro: true, cadastrarErroMsg: errors.map(x => <p>{x}</p>) });
     }
 
     gotoHome(){

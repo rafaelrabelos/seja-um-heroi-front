@@ -51,7 +51,7 @@ class Topo extends React.Component {
                     <a class="nav-link" href="/hero">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="/#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Cadastrar
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -80,10 +80,11 @@ class Topo extends React.Component {
                                 
                                 <div className="row">
                                     <div className="col col-md-12">
-                                        <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a class="nav-link dropdown-toggle" href="/#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <div className="row">
                                                 <div className="col col-md-12">
                                                     <img 
+                                                    alt="avatar"
                                                     className="circle-img rounded-circle" 
                                                     src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" 
                                                     data-holder-rendered="true" 
@@ -97,7 +98,7 @@ class Topo extends React.Component {
                                                 <small>{this.state.userName}({this.state.userEmail})</small>
                                             </div>
                                             <div class="dropdown-divider"></div>
-                                            <a className="dropdown-item" href="#">
+                                            <a className="dropdown-item" href="/#">
                                                 <div className="row">
                                                     <div className="col col-md-2"><i className="fa fa-user-circle"></i></div>
                                                     <div className="col col-md-2">Perfil</div>

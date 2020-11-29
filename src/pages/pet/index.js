@@ -36,6 +36,19 @@ export default function Register() {
         }
 
     }
+
+    async function showErrors(erros){
+        let errors = [];
+
+        if(erros.data && Array.isArray(erros.data.erros)){
+            errors = erros.data.erros;
+        }else{
+            errors = [`${erros.status} ${erros.statusText} `];
+        }
+
+        this.setState({cadastrarErro: true, cadastrarErroMsg: errors.map(x => <p>{x}</p>) });
+    }
+
     return (
         <>
         <div class="container">
