@@ -78,12 +78,13 @@ export default class Logon extends React.Component {
                         </div>
                         <div class="col-lg-6 col-md-6 px-5 pt-5">
                             <h1 class="font-weight-bold py-3"><img src={logoImg} class="img-fluid" alt="" /></h1>
+                            <br />
                             <h4>Entre com sua conta</h4>
                             <form
                             onSubmit={this.handleLogin}
                             >
                                 <div class="form-row">
-                                    <div class="col-lg-7">
+                                    <div class="col-lg-10">
                                         <input type="email"
                                         placeholder="Email"
                                         value = {this.email}
@@ -94,7 +95,7 @@ export default class Logon extends React.Component {
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="col-lg-7">
+                                    <div class="col-lg-10">
                                         <input type="password"
                                         placeholder="Senha"
                                         value = {this.senha}
@@ -105,7 +106,7 @@ export default class Logon extends React.Component {
                                     </div>
                                 </div>
                                 <div class="form-row" style={{display:this.state.loginErro}}>
-                                    <div class="col-lg-7">
+                                    <div class="col-lg-10">
                                         <br />
                                     <div className="alert alert-warning alert-dismissible fade show" role="alert">
                                         <strong>Ooops!</strong>{this.state.loginErroMsg} <a href="/auth/recuperar-senha">Recuperar senha</a>
@@ -117,12 +118,12 @@ export default class Logon extends React.Component {
                                 </div>
                                 
                                 <div class="form-row">
-                                    <div class="col-lg-7">
+                                    <div class="col-lg-10">
                                         <button onClick ={(e) => this.handleLogin(e)}  type="submit" class="btn1 mt-3 mb-1">Logar</button>
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="col-lg-7">
+                                    <div class="col-lg-10">
                                         <button type="button" class="btn2 mb-3"><i class="fab fa-google mr-2"></i>Logar com o Google</button>
                                     </div>
                                 </div>
