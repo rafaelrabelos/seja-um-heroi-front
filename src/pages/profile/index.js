@@ -1,4 +1,6 @@
 import React from 'react';
+import { UserService } from '../../services';
+import { UserProfileComponent } from '../shared';
 import './styles.css';
 
 export default class Profile extends React.Component {
@@ -6,47 +8,52 @@ export default class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userName: "",
-            userEmail: ""
+            userProfile: {},
         };
     }
 
-    componentDidMount(){
-        this.setState({
-        userName: sessionStorage.getItem("nome"),
-        userEmail: sessionStorage.getItem("email")
+    async componentWillMount(){
+        await this.getAndSetSelfUser();
+    }
+
+    async getAndSetSelfUser(){
+        await UserService.Obtem()
+        .then( res =>{            
+            if(res.data.status === false){
+                this.showErrors(res);
+            }else{
+                this.setState({ userProfile: res.data });
+            }
+        })
+        .catch(err =>{
+            if(err.response && err.response.data){
+                this.showErrors(err.response);
+            }
+            console.log(err);
+            console.log(err.response);
         });
     }
 
+    showErrors(erros){
+        let errors = [];
+
+        if(erros.data && Array.isArray(erros.data.erros)){
+            errors = erros.data.erros;
+        }else{
+            errors = [`${erros.status} ${erros.statusText} `];
+        }
+
+        this.setState({loginErro: true, loginErroMsg: errors.map((x, idx) => <p key={idx+"logon"}>{x}</p>) });
+    }
      render(){return(
         <>
-        <div className="container form-inline">
-            <div className="card" style={{width: "100%"}}>
-            
-            <div className="card-header">
-            <div className="row">
-                <div className="col col-md-8" style={{margin:"1%"}}>
-                    <img 
-                    alt="avatar"
-                    className="circle-img rounded-circle" 
-                    src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" 
-                    data-holder-rendered="true" 
-                    />
-                </div>
-                <div className="col col-md-12" >
-                <h5>{ this.state.userName }</h5>{ this.state.userEmail }
-                </div>
-                
+            <div className="col col-md-4">
+                <UserProfileComponent />
             </div>
+            <div className="col col-md-8">
+
+            aa
             </div>
-            <div className="card-body">
-                <h5 className="card-title">Bio</h5>
-                <p className="card-text"> -- </p>
-                <a href="/#" className="btn btn-primary">Editar</a>
-                
-            </div>
-            </div>
-        </div>
         </>
     );
 }
