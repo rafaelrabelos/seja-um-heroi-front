@@ -1,8 +1,7 @@
 
 import React from 'react';
 import { withRouter } from 'react-router';
-import { UserService } from '../../../services';
-import 'layout/principal/styles/topo.css';
+import { UserService } from 'services';
 
 class UserProfileComponent extends React.Component {
 

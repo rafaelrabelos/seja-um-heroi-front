@@ -1,9 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import { AuthService } from '../../../services';
+import { AuthService } from 'services';
 import logoImg from 'img/logo.png';
 import { withRouter } from "react-router";
-import SwitchLayout from '../../../components/switchLayout';
+import SwitchLayout from 'components/switchLayout';
 import 'layout/principal/styles/topo.css';
 
 class Topo extends React.Component {

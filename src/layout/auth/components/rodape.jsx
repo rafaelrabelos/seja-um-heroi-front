@@ -1,7 +1,7 @@
 import React from 'react';
 import logoImg from 'img/logo.png';
-import 'layout/auth/styles/rodape.css';
 import { Row } from 'reactstrap';
+import 'layout/auth/styles/rodape.css';
 
 export default function Rodape() {
 

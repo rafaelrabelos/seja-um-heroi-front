@@ -1,6 +1,6 @@
 import React from 'react';
 import logoImg from 'img/logo.png';
-import 'layout/principal/styles/rodape.css';
+import 'layout/admin/styles/rodape.css';
 
 export default function RodapeAdmin() {
     

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { AuthService } from '../services';
+import { AuthService } from 'services';
 import { withRouter } from "react-router";
 import 'layout/principal/styles/topo.css';
 

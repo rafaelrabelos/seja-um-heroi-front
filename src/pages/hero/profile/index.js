@@ -1,6 +1,6 @@
 import React from 'react';
-import { UserService } from '../../../services';
-import { UserProfileComponent } from '../../shared';
+import { UserService } from 'services';
+import { UserProfileComponent } from 'pages/shared';
 import './styles.css';
 
 export default class Profile extends React.Component {
