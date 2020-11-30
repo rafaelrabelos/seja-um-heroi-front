@@ -1,8 +1,9 @@
 import { Route } from "react-router-dom";
 import React from 'react'
 import { Logon, Register, Pet, Home, Profile } from './pages';
+import { AdminProfile, AdminDashboard } from './pages';
 
-var routes = [
+var userRoutes = [
   {
     layout: "/auth",
     page: "/login",
@@ -24,7 +25,7 @@ var routes = [
   {
     layout: "/hero",
     page: "/profile",
-    nome: "Dashboard",
+    nome: "Profile",
     component: Profile
   },
   {
@@ -34,6 +35,23 @@ var routes = [
     component: Pet
   }
 ];
+
+var adminRoutes = [
+  {
+    layout: "/admin",
+    page: "/home",
+    nome: "Admin Dashboard",
+    component: AdminDashboard
+  },
+  {
+    layout: "/admin",
+    page: "/profile",
+    nome: "Pet Admin",
+    component: AdminProfile
+  },
+]
+
+const routes = userRoutes.concat(adminRoutes)
 
 function getPageName(path) {
   for (let i = 0; i < routes.length; i++) {

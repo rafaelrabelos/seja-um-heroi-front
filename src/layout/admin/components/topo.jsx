@@ -6,7 +6,7 @@ import { withRouter } from "react-router";
 import SwitchLayout from '../../../components/switchLayout';
 import 'layout/principal/styles/topo.css';
 
-class Topo extends React.Component {
+class TopoAdmin extends React.Component {
 
     constructor(props) {
         super(props);
@@ -21,16 +21,11 @@ class Topo extends React.Component {
         if(this.state.userIsLoged){
             this.setState({
             userName: sessionStorage.getItem("nome"),
-            userEmail: sessionStorage.getItem("email"),
+            userEmail: sessionStorage.getItem("email")
             });
         }else{
             this.handleLogout();
         }
-    }
-
-    shwowSwitchLayout(){
-        const userRights = sessionStorage.getItem("usertype");
-        return ((userRights === 'root') || (userRights === 'admin')) === true || false;
     }
 
     handleLogout = () => AuthService.Logout()
@@ -44,7 +39,7 @@ class Topo extends React.Component {
          { this.state.userIsLoged ? "" : <Redirect to="/auth"></Redirect>}
         <nav className="navbar fixed-top navbar-expand-md navbar-light bg-light" style={{borderBottomStyle:"ridge"}}>
             <nav className="navbar navbar-light bg-light">
-                <a className="navbar-brand" href="/hero">
+                <a className="navbar-brand" href="/admin">
                     <img src={logoImg} width="100" height="30" alt="" />
                 </a>
             </nav>
@@ -53,21 +48,15 @@ class Topo extends React.Component {
             </button>
             <div className="collapse navbar-collapse order-1 order-md-0 dual-collapse2" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
-                    <li className="nav-item active">
-                    <a className="nav-link" href="/hero">Home <span className="sr-only">(current)</span></a>
-                    </li>
                     <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="/#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Cadastrar
+                        Gerenciar
                     </a>
                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a className="dropdown-item" href="/hero">Cadastrar Caso</a>
-                        <a className="dropdown-item" href="/hero/cadastrar">Cadastrar Pets</a>
-                        <a className="dropdown-item" href="/hero">Cadastrar Usuário</a>
+                        <a className="dropdown-item" href="/admin/pets">Pets</a>
+                        <a className="dropdown-item" href="/admin/users">Usuários</a>
+                        <a className="dropdown-item" href="/admin/system">Sistema</a>
                     </div>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link" href="/hero">Agendar castração</a>
                     </li>
                 </ul>
                 <div className="mx-auto order-0">
@@ -78,12 +67,12 @@ class Topo extends React.Component {
                         </div>
                     </form>
                 </div>
-
                 <div className="w-10 order-3 dual-collapse2">
                     <div className="row text-center ">
                         <div className="col-md-6 mb-4 profile-menu ">
                         <ul className="navbar-nav mr-auto ">
                             <li className="nav-item dropdown">
+                                
                                 <div className="row">
                                     <div className="col col-md-12">
                                         <a className="nav-link dropdown-toggle" href="/#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,7 +81,7 @@ class Topo extends React.Component {
                                                     <img 
                                                     alt="avatar"
                                                     className="circle-img rounded-circle" 
-                                                    src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" 
+                                                    src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" 
                                                     data-holder-rendered="true" 
                                                     />
                                                 </div>
@@ -104,7 +93,7 @@ class Topo extends React.Component {
                                                 <small>{this.state.userName}({this.state.userEmail})</small>
                                             </div>
                                             <div className="dropdown-divider"></div>
-                                            <a className="dropdown-item" href="/hero/profile">
+                                            <a className="dropdown-item" href="/admin/profile">
                                                 <div className="row">
                                                     <div className="col col-md-2"><i className="fa fa-user-circle"></i></div>
                                                     <div className="col col-md-2">Perfil</div>
@@ -129,12 +118,12 @@ class Topo extends React.Component {
                         </div>
                     </div>
                 </div>
-                {this.shwowSwitchLayout() === true ? <SwitchLayout /> : ""}
             </div>
+            <SwitchLayout />
         </nav></>
         );
     }
 
 }
 
-export default withRouter(Topo)
+export default withRouter(TopoAdmin)

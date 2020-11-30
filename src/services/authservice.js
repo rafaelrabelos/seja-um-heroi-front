@@ -6,7 +6,8 @@ export async function Login({email, senha}) {
     const res = await api.post('/login',{ email, senha });
 
     if(res.data.status !== false){
-        SessionInit(res.data.data);
+        sessionStorage.setItem("token", res.data.data.token);
+        IsValideSession();
     }
 
     return res;
@@ -25,6 +26,7 @@ function SessionInit(data) {
 
     sessionStorage.setItem("nome", data.user.nome);
     sessionStorage.setItem("email", data.user.email);
+    sessionStorage.setItem("usertype", data.user.type );
     sessionStorage.setItem("token", data.token);
 }
 
@@ -37,10 +39,16 @@ export function IsValideSession(){
 
     if(sessionStorage.getItem("token") !== null){
         var decoded = jwt_decode(token);
+        
+        if(!decoded){
+            return false;
+        }
+        
         SessionInit({
             user:{
                 nome: decoded.user.nome,
-                email: decoded.user.email
+                email: decoded.user.email,
+                type: decoded.type
             },
             token: token
         })
