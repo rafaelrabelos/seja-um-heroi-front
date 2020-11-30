@@ -1,7 +1,7 @@
 import React from 'react';
-import { AuthService } from '../../services';
-import petImg from '../../img/pets.jpg';
-import logoImg from '../../img/logo.png';
+import { AuthService } from '../../../services';
+import petImg from '../../../img/pets.jpg';
+import logoImg from '../../../img/logo.png';
 import './styles.css';
 
 export default class Logon extends React.Component {

@@ -1,11 +1,11 @@
 import React from 'react';
 import './styles.css';
-import bulldog from '../../img/bulldog.jpg';
-import corgi from '../../img/corgi.jpg';
-import lulu from '../../img/lulu.jpg';
-import pug from '../../img/pug.jpg';
-import salsicha from '../../img/salsicha.jpg';
-import shitsu from '../../img/shitsu.jpg';
+import bulldog from '../../../img/bulldog.jpg';
+import corgi from '../../../img/corgi.jpg';
+import lulu from '../../../img/lulu.jpg';
+import pug from '../../../img/pug.jpg';
+import salsicha from '../../../img/salsicha.jpg';
+import shitsu from '../../../img/shitsu.jpg';
 
 
 export default function Home() {

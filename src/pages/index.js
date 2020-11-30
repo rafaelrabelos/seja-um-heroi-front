@@ -1,8 +1,8 @@
-import Logon from './logon';
-import Register from './register';
-import Home from './home';
-import Pet from './pet';
-import Profile from './profile';
+import Logon from './hero/logon';
+import Register from './hero/register';
+import Home from './hero/home';
+import Pet from './hero/pet';
+import Profile from './hero/profile';
 
 // Admin imports
 import AdminDashboard from './admin/home';
