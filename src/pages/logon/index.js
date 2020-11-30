@@ -33,7 +33,6 @@ export default class Logon extends React.Component {
                 alert("Login Efetuado com sucesso!");
                 this.gotoHome();
             }
-            console.log(res.data.status);
         })
         .catch(err =>{
             if(err.response && err.response.data){
