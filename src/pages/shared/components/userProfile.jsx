@@ -81,7 +81,11 @@ class UserProfileComponent extends React.Component {
                 }
               >
                 <h5>
-                  <span className="badge badge-pill badge-info">
+                  <span
+                    className={`badge badge-pill ${
+                      permissionName === "user" ? "badge-info" : "badge-warning"
+                    }`}
+                  >
                     {permissionName}
                   </span>
                 </h5>
