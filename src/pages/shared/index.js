@@ -1,3 +1,3 @@
-import UserProfileComponent from './components/userProfile';
+import UserProfileComponent from "./components/userProfile";
 
-export { UserProfileComponent }
+export { UserProfileComponent };

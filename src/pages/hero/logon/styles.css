@@ -1,50 +1,51 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 .main-container {
-    border: rgb(0, 0, 0);
-    border-style: ridge;
-    border-color: #9e9e9e33;
-    background: white;
-    border-radius: 25px;
-    box-shadow: 9px 9px 16px #808080b8;
-    margin-bottom: 10%;
+  border: rgb(0, 0, 0);
+  border-style: ridge;
+  border-color: #9e9e9e33;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 9px 9px 16px #808080b8;
+  margin-bottom: 10%;
 }
 img {
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px ;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
-.btn1, .btn2{
-    border: none;
-    outline: none;
-    height: 50px;
-    width: 100%;
-    border-radius: 4px;
-    font-weight: bold;
-    font-size: 14px;
-    color: white;
+.btn1,
+.btn2 {
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 100%;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
 }
- .btn1{ 
-    background-color: rgb(51, 153, 255);
+.btn1 {
+  background-color: rgb(51, 153, 255);
 }
 .btn2 {
-    background-color: rgb(255, 0, 0);
+  background-color: rgb(255, 0, 0);
 }
 .btn1:hover {
-    background: white;
-    border: 1px solid;
-    color: rgb(51, 153, 255);
+  background: white;
+  border: 1px solid;
+  color: rgb(51, 153, 255);
 }
 .btn2:hover {
-    background: white;
-    border: 1px solid;
-    color: rgb(255, 0, 0);
+  background: white;
+  border: 1px solid;
+  color: rgb(255, 0, 0);
 }
 .centertext {
-    text-align: center;
+  text-align: center;
 }
 .descriptiontext {
-    color: rgb(41, 27, 23);
+  color: rgb(41, 27, 23);
 }

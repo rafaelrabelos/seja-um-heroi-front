@@ -3,7 +3,7 @@ import { Container, Row } from "reactstrap";
 import { Switch, Redirect } from "react-router-dom";
 //components
 import Rodape from "./components/rodape";
-import routes, {getRoutes} from "routes.js";
+import routes, { getRoutes } from "routes.js";
 
 class AuthLayout extends React.Component {
   componentDidMount() {
@@ -23,13 +23,13 @@ class AuthLayout extends React.Component {
           <Container className="mt--8 pb-5">
             <Row className="justify-content-center">
               <Switch>
-                {getRoutes(routes, '/auth')}
+                {getRoutes(routes, "/auth")}
                 <Redirect from="*" to="/auth/login" />
               </Switch>
             </Row>
           </Container>
         </div>
-          <Rodape />
+        <Rodape />
       </>
     );
   }
