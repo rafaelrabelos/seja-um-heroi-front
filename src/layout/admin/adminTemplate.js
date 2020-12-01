@@ -1,10 +1,11 @@
 import React from "react";
 import { Container, Row } from "reactstrap";
 import { Switch, Redirect } from "react-router-dom";
+import routes, { getRoutes } from "routes.js";
 //components
 import TopoAdmin from "./components/topo";
 import RodapeAdmin from "./components/rodape";
-import routes, { getRoutes } from "routes.js";
+import SideBar from './components/sidebar';
 import "./styles/layout.css";
 
 class AdminLayout extends React.Component {
@@ -26,7 +27,8 @@ class AdminLayout extends React.Component {
       <>
         {!isAdm ? <Redirect to="/hero" /> : ""}
         <TopoAdmin />
-        <div className="main-content">
+        <SideBar basePath="/admin" />
+        <div className="main main-content">
           {/* Page content */}
 
           {/* roteamento do layout */}
@@ -38,8 +40,9 @@ class AdminLayout extends React.Component {
               </Switch>
             </Row>
           </Container>
+          <RodapeAdmin />
         </div>
-        <RodapeAdmin />
+        
       </>
     );
   }
