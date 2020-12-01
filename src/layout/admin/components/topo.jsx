@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { AuthService } from "services";
 import { withRouter } from "react-router";
 import SwitchLayout from "components/switchLayout";
-import UserProfileItem from 'components/userProfileItem';
+import UserProfileItem from "components/userProfileItem";
 import TopBarMenu from "./topbarMenu";
 import GlobalSearch from "components/globalSearch";
 import "layout/admin/styles/topo.css";
@@ -53,7 +53,7 @@ class TopoAdmin extends React.Component {
                 <div className="col-md-6 mb-4">
                   <div className="col col-md-12" style={{ marginTop: "30px" }}>
                     <SwitchLayout />
-                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -63,7 +63,7 @@ class TopoAdmin extends React.Component {
                 <div className="col-md-6 mb-4 profile-menu">
                   <ul className="navbar-nav mr-auto ">
                     <li className="nav-item dropdown">
-                      <UserProfileItem />
+                      <UserProfileItem pathBase="/admin" />
                     </li>
                   </ul>
                 </div>

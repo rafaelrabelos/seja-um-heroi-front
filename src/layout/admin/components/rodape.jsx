@@ -12,7 +12,7 @@ export default function RodapeAdmin() {
             <img src={logoImg} width="100" height="30" alt="" />
           </span>
           <p className="footer-links">
-            <a href="/" className="link-1">
+            <a href="/admin" className="link-1">
               Home
             </a>
             <a href="/auth/blog">Blog</a>

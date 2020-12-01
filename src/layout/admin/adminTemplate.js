@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import { Container, Row } from "reactstrap";
 import { Switch, Redirect } from "react-router-dom";
 //components
-import TopoAdmin from './components/topo';
+import TopoAdmin from "./components/topo";
 import RodapeAdmin from "./components/rodape";
-import routes, {getRoutes} from "routes.js";
-import './styles/layout.css';
+import routes, { getRoutes } from "routes.js";
+import "./styles/layout.css";
 
 class AdminLayout extends React.Component {
   componentDidMount() {
@@ -15,10 +15,17 @@ class AdminLayout extends React.Component {
     document.body.classList.remove("bg-default");
   }
 
+  shwowSwitchLayout() {
+    const userRights = sessionStorage.getItem("usertype");
+    return (userRights === "root" || userRights === "admin") === true || false;
+  }
+
   render() {
+    const isAdm = this.shwowSwitchLayout();
     return (
       <>
-      <TopoAdmin />
+        {!isAdm ? <Redirect to="/hero" /> : ""}
+        <TopoAdmin />
         <div className="main-content">
           {/* Page content */}
 
@@ -26,13 +33,13 @@ class AdminLayout extends React.Component {
           <Container className="mt--8 pb-5">
             <Row className="justify-content-center">
               <Switch>
-                {getRoutes(routes, '/admin')}
+                {getRoutes(routes, "/admin")}
                 <Redirect from="*" to="/admin/home" />
               </Switch>
             </Row>
           </Container>
         </div>
-          <RodapeAdmin />
+        <RodapeAdmin />
       </>
     );
   }

@@ -6,12 +6,10 @@ import { withRouter } from "react-router";
 import SwitchLayout from "components/switchLayout";
 import TopBarMenu from "./topbarMenu";
 import GlobalSearch from "components/globalSearch";
-import UserProfileItem from 'components/userProfileItem';
+import UserProfileItem from "components/userProfileItem";
 import "layout/principal/styles/topo.css";
 
 class Topo extends React.Component {
-
-  
   render() {
     const userIsLoged = AuthService.IsValideSession();
     return (
@@ -54,7 +52,7 @@ class Topo extends React.Component {
                 <div className="col-md-6 mb-4">
                   <div className="col col-md-12" style={{ marginTop: "30px" }}>
                     <SwitchLayout />
-                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -64,7 +62,7 @@ class Topo extends React.Component {
                 <div className="col-md-6 mb-4 profile-menu">
                   <ul className="navbar-nav mr-auto ">
                     <li className="nav-item dropdown">
-                      <UserProfileItem />
+                      <UserProfileItem pathBase="/hero" />
                     </li>
                   </ul>
                 </div>

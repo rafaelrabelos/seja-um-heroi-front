@@ -81,7 +81,7 @@ class UserProfileItem extends React.Component {
             </div>
           </div>
           <div className="dropdown-divider"></div>
-          <a className="dropdown-item" href="/admin/profile">
+          <a className="dropdown-item" href={`${this.props.pathBase}/profile`}>
             <div className="row">
               <div className="col col-md-2">
                 <i className="fa fa-user-circle"></i>
