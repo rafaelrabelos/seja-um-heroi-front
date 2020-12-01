@@ -56,7 +56,6 @@ export default function RodapeAdmin() {
           </div>
         </div>
       </footer>
-      <hr />
     </>
   );
 }
