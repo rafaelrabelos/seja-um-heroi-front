@@ -1,5 +1,4 @@
 import React from "react";
-import { AuthService } from "services";
 import { withRouter } from "react-router";
 import "./css/components.css";
 
@@ -7,34 +6,36 @@ class SwitchLayout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userIsLoged: AuthService.IsValideSession(),
+      isAdm: false,
+      admLayout: false,
     };
   }
 
   componentDidMount() {
-    if (this.state.userIsLoged) {
-      this.setState({
-        userName: sessionStorage.getItem("nome"),
-        userEmail: sessionStorage.getItem("email"),
-      });
-    } else {
-      this.handleLogout();
-    }
+    this.setState({
+      isAdm: this.shwowSwitchLayout(),
+      admLayout: this.props.match.path === "/admin",
+    });
   }
 
-  handleSwitchToAdminLayout = () =>
-    AuthService.Logout().then(() => {
-      this.props.history.push("/auth");
-    });
+  shwowSwitchLayout() {
+    const userRights = sessionStorage.getItem("usertype");
+    return (userRights === "root" || userRights === "admin") === true || false;
+  }
 
   render() {
     return (
-      <ul className="navbar-nav mr-auto">
+      <ul
+        className="navbar-nav mr-auto"
+        style={{ display: this.shwowSwitchLayout() ? "" : "none" }}
+      >
         <li className="nav-item dropdown">
           <div className="row">
             <div className="col">
               <button
-                className="btn btn-circle btn-sm btn-outline-secondary"
+                className={`btn btn-circle btn-sm btn-${
+                  !this.state.admLayout ? "" : "outline-"
+                }secondary`}
                 href="/#"
                 id="layoutDropdown"
                 data-toggle="dropdown"
@@ -47,21 +48,23 @@ class SwitchLayout extends React.Component {
                 className="dropdown-menu dropdown-menu-right"
                 aria-labelledby="layoutDropdown"
               >
-                <a className="dropdown-item" href="/hero">
+                <div className="col col-md-12 user-description">
                   <div className="row">
-                    <div className="col col-md-2">
-                      <i className="fa fa-user-circle"></i>
-                    </div>
-                    <div className="col col-md-2">Herói (usuário)</div>
+                    <div className="col col-md-12">Alterna visão para:</div>
                   </div>
-                </a>
+                </div>
                 <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="/admin">
+                <a
+                  className="dropdown-item"
+                  href={this.state.admLayout ? "/hero" : "/admin"}
+                >
                   <div className="row">
                     <div className="col col-md-2">
                       <i className="fa fa-user-cog"></i>
                     </div>
-                    <div className="col col-md-2">Administrador</div>
+                    <div className="col col-md-2">
+                      {!this.state.admLayout ? "Administrador" : "Usuario"}
+                    </div>
                   </div>
                 </a>
               </div>
