@@ -7,6 +7,7 @@ import Profile from "./hero/profile";
 // Admin imports
 import AdminDashboard from "./admin/home";
 import AdminProfile from "./admin/profile";
+import PetsClasses from "./admin/pets-classes";
 
 export {
   Logon,
@@ -17,4 +18,5 @@ export {
   // Admin exports
   AdminDashboard,
   AdminProfile,
+  PetsClasses,
 };

@@ -1,7 +1,7 @@
 import { Route } from "react-router-dom";
 import React from "react";
 import { Logon, Register, Pet, Home, Profile } from "./pages";
-import { AdminProfile, AdminDashboard } from "./pages";
+import { AdminProfile, AdminDashboard, PetsClasses } from "./pages";
 
 var userRoutes = [
   {
@@ -48,6 +48,12 @@ var adminRoutes = [
     page: "/profile",
     nome: "Pet Admin",
     component: AdminProfile,
+  },
+  {
+    layout: "/admin",
+    page: "/pets-classes",
+    nome: "Pet Admin",
+    component: PetsClasses,
   },
 ];
 
