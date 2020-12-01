@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 import { withRouter } from "react-router";
 import "./css/components.css";
 
@@ -26,7 +25,6 @@ class SwitchLayout extends React.Component {
     const isAdm = this.shwowSwitchLayout();
     return (
       <>
-        {isAdm ? "" : <Redirect to="/hero"></Redirect>}
         <ul
           className="navbar-nav mr-auto"
           style={{ display: isAdm ? "" : "none" }}
