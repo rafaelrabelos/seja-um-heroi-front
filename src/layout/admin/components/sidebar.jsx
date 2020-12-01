@@ -14,13 +14,13 @@ class SideBar extends React.Component {
   render() {
     return (
       <>
-        <div class="sidenav">
+        <div className="sidenav">
           <div id="accordion">
-            <div class="card">
-              <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
+            <div className="card">
+              <div className="card-header" id="headingOne">
+                <h5 className="mb-0">
                   <button
-                    class="btn btn-link"
+                    className="btn btn-link"
                     data-toggle="collapse"
                     data-target="#collapseOne"
                     aria-expanded="true"
@@ -33,22 +33,40 @@ class SideBar extends React.Component {
 
               <div
                 id="collapseOne"
-                class="collapse show"
+                className="collapse show"
                 aria-labelledby="headingOne"
                 data-parent="#accordion"
               >
-                <div class="card-body">
-                <a href="/admin/pets-classes" className="btn btn-block btn-sm btn-primary"> Classes</a>
-                <a href="/admin/pets-raças" className="btn btn-block btn-sm btn-primary"> Raças</a>
-                <a href="/admin/pets-vacinas" className="btn btn-block btn-sm btn-primary"> Vacinas</a>
+                <div className="card-body">
+                  <a
+                    href="/admin/pets-classes"
+                    className="btn btn-block btn-sm btn-primary"
+                  >
+                    {" "}
+                    Classes
+                  </a>
+                  <a
+                    href="/admin/pets-raças"
+                    className="btn btn-block btn-sm btn-primary"
+                  >
+                    {" "}
+                    Raças
+                  </a>
+                  <a
+                    href="/admin/pets-vacinas"
+                    className="btn btn-block btn-sm btn-primary"
+                  >
+                    {" "}
+                    Vacinas
+                  </a>
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
+            <div className="card">
+              <div className="card-header" id="headingTwo">
+                <h5 className="mb-0">
                   <button
-                    class="btn btn-link collapsed"
+                    className="btn btn-link collapsed"
                     data-toggle="collapse"
                     data-target="#collapseTwo"
                     aria-expanded="false"
@@ -60,11 +78,17 @@ class SideBar extends React.Component {
               </div>
               <div
                 id="collapseTwo"
-                class="collapse"
+                className="collapse"
                 aria-labelledby="headingTwo"
                 data-parent="#accordion"
               >
-                <a href="/admin/users-admins" className="btn btn-block btn-sm btn-primary"> Administradores</a>
+                <a
+                  href="/admin/users-admins"
+                  className="btn btn-block btn-sm btn-primary"
+                >
+                  {" "}
+                  Administradores
+                </a>
               </div>
             </div>
           </div>
