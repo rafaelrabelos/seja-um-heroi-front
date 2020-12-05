@@ -21,8 +21,8 @@ class TopoAdmin extends React.Component {
       <>
         {userIsLoged ? "" : <Redirect to="/auth"></Redirect>}
         <nav
-          className="navbar fixed-top navbar-expand-md navbar-dark bg-dark"
-          style={{ borderBottomStyle: "ridge" }}
+          className="navbar fixed-top navbar-expand-sm navbar-dark bg-dark"
+          style={{ borderBottomStyle: "solid", borderColor: "grey" }}
         >
           <button
             className="navbar-toggler"
