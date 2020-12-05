@@ -4,7 +4,6 @@ import { AuthService } from "services";
 import { withRouter } from "react-router";
 import SwitchLayout from "components/switchLayout";
 import UserProfileItem from "components/userProfileItem";
-import TopBarMenu from "./topbarMenu";
 import GlobalSearch from "components/globalSearch";
 import "layout/admin/styles/topo.css";
 
@@ -40,7 +39,6 @@ class TopoAdmin extends React.Component {
             className="collapse navbar-collapse order-1 order-md-0 dual-collapse2"
             id="navbarSupportedContent"
           >
-            <TopBarMenu />
 
             <div className="mx-auto order-0">
               <div className="input-group input-group-sm mb-3">
