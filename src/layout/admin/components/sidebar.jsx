@@ -43,7 +43,7 @@ class SideBar extends React.Component {
         name: "Gerenciar Usuários",
         class: "nc",
         parentName: "Usuários",
-      }
+      },
     ];
 
     const subItens_Vaccine = [
@@ -53,7 +53,7 @@ class SideBar extends React.Component {
         name: "Gerenciar Vacinas",
         class: "nc",
         parentName: "Vacinas",
-      }
+      },
     ];
 
     const subItens_Ajuste = [
@@ -74,8 +74,8 @@ class SideBar extends React.Component {
     ];
 
     return subItens_Pet.concat(
-      subItens_Users.concat(
-        subItens_Vaccine.concat(subItens_Ajuste)));
+      subItens_Users.concat(subItens_Vaccine.concat(subItens_Ajuste))
+    );
   }
 
   menuItemList() {
@@ -122,7 +122,7 @@ class SideBar extends React.Component {
         name: "Ajustes",
         class: "darkerlishadowdown",
         group: true,
-        subItens:[],
+        subItens: [],
       },
       //ou of group
       {
@@ -157,36 +157,54 @@ class SideBar extends React.Component {
     return itens;
   }
 
-  buildSingleListItem(menuItem, key){
+  buildSingleListItem(menuItem, key) {
     const item = (
       <li key={key} className={menuItem.class}>
-          <a href={menuItem.href}>
-            <i className={`${menuItem.faIco} fa-lg fa-sidebar`} style={{ color: menuItem.color}}></i>
-            <span className="nav-text">{menuItem.name}</span>
-          </a>
-        </li>
+        <a href={menuItem.href}>
+          <i
+            className={`${menuItem.faIco} fa-lg fa-sidebar`}
+            style={{ color: menuItem.color }}
+          ></i>
+          <span className="nav-text">{menuItem.name}</span>
+        </a>
+      </li>
     );
 
     return item;
   }
 
   buildMenuItem(menuItem, key) {
-
-    if(menuItem.subItens.length < 1){
+    if (menuItem.subItens.length < 1) {
       return this.buildSingleListItem(menuItem, `single-${key}`);
     }
-    
+
     const item = (
       <>
         <li key={`${key}-colapse-trigger`} className={menuItem.class}>
-          <a href={ menuItem.href } data-toggle={`collapse`}  data-target={`#collapse-${key}`} aria-expanded="false" aria-controls={`collapse-${key}`}>
-            <i className={`${menuItem.faIco} fa-lg fa-sidebar`} style={{ color: menuItem.color}}></i>
+          <a
+            href={menuItem.href}
+            data-toggle={`collapse`}
+            data-target={`#collapse-${key}`}
+            aria-expanded="false"
+            aria-controls={`collapse-${key}`}
+          >
+            <i
+              className={`${menuItem.faIco} fa-lg fa-sidebar`}
+              style={{ color: menuItem.color }}
+            ></i>
             <span className="nav-text">{menuItem.name}</span>
           </a>
         </li>
-        <div  id={`collapse-${key}`} className="collapse" aria-labelledby={`heading-${key}`} data-parent="#style-1">
+        <div
+          id={`collapse-${key}`}
+          className="collapse"
+          aria-labelledby={`heading-${key}`}
+          data-parent="#style-1"
+        >
           <ul key={`${key}-list-item`}>
-            { menuItem.subItens.map( (x, idx)=> this.buildSingleListItem(x, `${key}-child-${idx}`)) }
+            {menuItem.subItens.map((x, idx) =>
+              this.buildSingleListItem(x, `${key}-child-${idx}`)
+            )}
           </ul>
         </div>
       </>
@@ -195,11 +213,12 @@ class SideBar extends React.Component {
   }
 
   buildSideNav() {
-
     const groupables = this.menuItemList()
       .filter((x) => x.group)
       .map((x, idx) => {
-        x.subItens = this.menuSubItemList().filter((y)=> y.parentName === x.name);
+        x.subItens = this.menuSubItemList().filter(
+          (y) => y.parentName === x.name
+        );
         return this.buildMenuItem(x, `main-groupable-${idx}`);
       });
 
@@ -224,7 +243,7 @@ class SideBar extends React.Component {
   }
 
   render() {
-    return( this.buildSideNav());
+    return this.buildSideNav();
   }
 }
 
