@@ -178,8 +178,8 @@ class SideBar extends React.Component {
       return this.buildSingleListItem(menuItem, `single-${key}`);
     }
 
-    const item = (
-      <>
+    const itemMenu = (
+      <div key={`${key}-colapse-container`}>
         <li key={`${key}-colapse-trigger`} className={menuItem.class}>
           <a
             href={menuItem.href}
@@ -207,9 +207,9 @@ class SideBar extends React.Component {
             )}
           </ul>
         </div>
-      </>
+      </div>
     );
-    return item;
+    return itemMenu;
   }
 
   buildSideNav() {
@@ -219,21 +219,21 @@ class SideBar extends React.Component {
         x.subItens = this.menuSubItemList().filter(
           (y) => y.parentName === x.name
         );
-        return this.buildMenuItem(x, `main-groupable-${idx}`);
+        return this.buildMenuItem(x, `menu-g1-${idx.toString()}`);
       });
 
     const nonGroupables = this.menuItemList()
       .filter((x) => !x.group)
       .map((x, idx) => {
-        return this.buildSingleListItem(x, `main-ungroupable-${idx}`);
+        return this.buildSingleListItem(x, `menu-g2-${idx.toString()}`);
       });
 
     const sidenav = (
       <div className="sidenav">
         <nav className="main-menu">
           <div className="scrollbar" id="style-1">
-            <ul key="groupable-sidenav">{groupables}</ul>
-            <ul key="ungroupable-sidenav-">{nonGroupables}</ul>
+            <ul key="groupable-sidevav">{groupables}</ul>
+            <ul key="ungroupable-sidevav-">{nonGroupables}</ul>
           </div>
         </nav>
       </div>
@@ -243,7 +243,8 @@ class SideBar extends React.Component {
   }
 
   render() {
-    return this.buildSideNav();
+    const comp = this.buildSideNav();
+    return comp;
   }
 }
 
