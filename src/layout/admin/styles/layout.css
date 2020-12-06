@@ -264,8 +264,8 @@ nav.main-menu li.active > a,
 .dropdown-menu > .active > a:focus,
 .no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
 .dashboard-page nav.dashboard-menu ul li.active a {
-  color: #fff;
-  background-color: #00bbbb;
+  color: rgb(65, 118, 187);
+  background-color: #e0e4e4;
   text-shadow: 0px 0px 0px;
 }
 .area {

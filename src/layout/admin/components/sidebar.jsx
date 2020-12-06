@@ -15,6 +15,7 @@ class SideBar extends React.Component {
         faIco: "fa fa-dog",
         name: "Gerenciar pets",
         class: "nc",
+        color: "#833f94",
         parentName: "Pets",
       },
       {
@@ -22,6 +23,7 @@ class SideBar extends React.Component {
         faIco: "fa fa-tasks",
         name: "Classes",
         class: "nc",
+        color: "#513f94",
         parentName: "Pets",
       },
       {
@@ -29,6 +31,7 @@ class SideBar extends React.Component {
         faIco: "fa fa-cat",
         name: "Raças",
         class: "nc",
+        color: "#943f82",
         parentName: "Pets",
       },
     ];
@@ -91,6 +94,7 @@ class SideBar extends React.Component {
         faIco: "fa fa-paw",
         name: "Pets",
         class: "darkerlishadow",
+        color: "#860ba5",
         group: true,
         subItens: [],
       },
@@ -99,6 +103,7 @@ class SideBar extends React.Component {
         faIco: "fa fa-user-circle",
         name: "Usuários",
         class: "darkerli",
+        color: "#04885c",
         group: true,
         subItens: [],
       },
@@ -107,6 +112,7 @@ class SideBar extends React.Component {
         faIco: "fa fa-syringe",
         name: "Vacinas",
         class: "darkerli",
+        color: "#75b1f5",
         group: true,
         subItens: [],
       },
@@ -124,6 +130,7 @@ class SideBar extends React.Component {
         faIco: "fa fa-question-circle",
         name: "Ajuda",
         class: "nc",
+        color: "#0c91a8",
         group: false,
         subItens: [],
       },
@@ -132,6 +139,7 @@ class SideBar extends React.Component {
         faIco: "fa fa-bug",
         name: "Bugs",
         class: "nc",
+        color: "Tomato",
         group: false,
         subItens: [],
       },
@@ -140,6 +148,7 @@ class SideBar extends React.Component {
         faIco: "fa fa-blog",
         name: "Blog",
         class: "nc",
+        color: "Orange",
         group: false,
         subItens: [],
       },
@@ -152,7 +161,7 @@ class SideBar extends React.Component {
     const item = (
       <li key={key} className={menuItem.class}>
           <a href={menuItem.href}>
-            <i className={`${menuItem.faIco} fa-lg fa-sidebar`}></i>
+            <i className={`${menuItem.faIco} fa-lg fa-sidebar`} style={{ color: menuItem.color}}></i>
             <span className="nav-text">{menuItem.name}</span>
           </a>
         </li>
@@ -168,7 +177,7 @@ class SideBar extends React.Component {
       <>
         <li key={`${key}-colapse-trigger`} className={menuItem.class}>
           <a href={ menuItem.href } data-toggle={`collapse`}  data-target={`#collapse-${key}`} aria-expanded="false" aria-controls={`collapse-${key}`}>
-            <i className={`${menuItem.faIco} fa-lg fa-sidebar`}></i>
+            <i className={`${menuItem.faIco} fa-lg fa-sidebar`} style={{ color: menuItem.color}}></i>
             <span className="nav-text">{menuItem.name}</span>
           </a>
         </li>
