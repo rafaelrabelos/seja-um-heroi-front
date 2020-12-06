@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
-
+import UserProfileItem from "components/userProfileItem";
 class SideBar extends React.Component {
   constructor(props) {
     super(props);
@@ -14,84 +14,113 @@ class SideBar extends React.Component {
   render() {
     return (
       <>
+      
         <div className="sidenav">
-          <div id="accordion">
-            <div className="card">
-              <div className="card-header" id="headingOne">
-                <h5 className="mb-0">
-                  <button
-                    className="btn btn-link"
-                    data-toggle="collapse"
-                    data-target="#collapseOne"
-                    aria-expanded="true"
-                    aria-controls="collapseOne"
-                  >
-                    Pets
-                  </button>
-                </h5>
-              </div>
+        
+          <nav className="main-menu">
+            <div>
+            
+            </div>
+            <div className="scrollbar" id="style-1">
+              <ul>
+                <li>
+                  <a href="/admin">
+                    <i className="fa fa-home fa-lg fa-sidebar"></i>
+                    <span className="nav-text">Home</span>
 
-              <div
-                id="collapseOne"
-                className="collapse show"
-                aria-labelledby="headingOne"
-                data-parent="#accordion"
-              >
-                <div className="card-body">
-                  <a
-                    href="/admin/pets-classes"
-                    className="btn btn-block btn-sm btn-primary"
-                  >
-                    {" "}
-                    Classes
+                    
                   </a>
-                  <a
-                    href="/admin/pets-raças"
-                    className="btn btn-block btn-sm btn-primary"
-                  >
-                    {" "}
-                    Raças
+                </li>
+                <li className="darkerlishadow">
+                  <a href="/admin">
+                    <i className="fa fa-clock-o fa-lg fa-sidebar"></i>
+                    <span className="nav-text">News</span>
                   </a>
-                  <a
-                    href="/admin/pets-vacinas"
-                    className="btn btn-block btn-sm btn-primary"
-                  >
-                    {" "}
-                    Vacinas
+                </li>
+                <li className="darkerli">
+                  <a href="/admin">
+                    <i className="fa fa-desktop fa-lg fa-sidebar"></i>
+                    <span className="nav-text">Technology</span>
                   </a>
-                </div>
-              </div>
-            </div>
-            <div className="card">
-              <div className="card-header" id="headingTwo">
-                <h5 className="mb-0">
-                  <button
-                    className="btn btn-link collapsed"
-                    data-toggle="collapse"
-                    data-target="#collapseTwo"
-                    aria-expanded="false"
-                    aria-controls="collapseTwo"
-                  >
-                    Usuários
-                  </button>
-                </h5>
-              </div>
-              <div
-                id="collapseTwo"
-                className="collapse"
-                aria-labelledby="headingTwo"
-                data-parent="#accordion"
-              >
-                <a
-                  href="/admin/users-admins"
-                  className="btn btn-block btn-sm btn-primary"
-                >
-                  {" "}
-                  Administradores
+                </li>
+                <li className="darkerli">
+                  <a href="/admin">
+                    <i className="fa fa-plane fa-lg fa-sidebar"></i>
+                    <span className="nav-text">Travel</span>
+                  </a>
+                </li>
+                <li className="darkerli">
+                  <a href="/admin">
+                    <i className="fa fa-shopping-cart fa-sidebar"></i>
+                    <span className="nav-text">Shopping</span>
+                  </a>
+                </li>
+
+                <li className="darkerli">
+                  <a href="/admin">
+                    <i className="fa fa-microphone fa-lg fa-sidebar"></i>
+                    <span className="nav-text">Film & Music</span>
+                  </a>
+                </li>
+
+                <li className="darkerli">
+                  <a href="/admin">
+                    <i className="fa fa-flask fa-lg fa-sidebar"></i>
+                    <span className="nav-text">Web Tools</span>
+                  </a>
+                </li>
+
+                <li className="darkerli">
+                  <a href="/admin">
+                    <i className="fa fa-picture-o fa-lg fa-sidebar"></i>
+                    <span className="nav-text">Art & Design</span>
+                  </a>
+                </li>
+
+                <li className="darkerli">
+                  <a href="/admin">
+                    <i className="fa fa-align-left fa-lg fa-sidebar"></i>
+                    <span className="nav-text">Magazines</span>
+                  </a>
+                </li>
+
+                <li className="darkerli">
+                  <a href="/admin">
+                    <i className="fa fa-gamepad fa-lg fa-sidebar"></i>
+                    <span className="nav-text">Games</span>
+                  </a>
+                </li>
+
+                <li className="darkerli">
+                  <a href="/admin">
+                    <i className="fa fa-glass fa-lg fa-sidebar"></i>
+                    <span className="nav-text">Life & Style</span>
+                  </a>
+                </li>
+
+                <li className="darkerlishadowdown">
+                  <a href="/admin">
+                    <i className="fa fa-rocket fa-lg fa-sidebar"></i>
+                    <span className="nav-text">Fun</span>
+                  </a>
+                </li>
+              </ul>
+              <li>
+                <a href="/admin">
+                  <i className="fa fa-question-circle fa-lg fa-sidebar"></i>
+                  <span className="nav-text">Help</span>
                 </a>
-              </div>
+              </li>
+              <ul className="logout">
+                <li>
+                  <a href="/admin">
+                    <i className="fa fa-lightbulb-o fa-lg fa-sidebar"></i>
+                    <span className="nav-text">BLOG</span>
+                  </a>
+                </li>
+              </ul>
             </div>
-          </div>
+          </nav>
         </div>
       </>
     );
