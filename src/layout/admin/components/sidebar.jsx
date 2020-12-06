@@ -172,6 +172,9 @@ class SideBar extends React.Component {
 
   buildMenuItem(menuItem, key) {
 
+    if(menuItem.subItens.length < 1){
+      return this.buildSingleListItem(menuItem, `single-${key}`);
+    }
     
     const item = (
       <>
@@ -188,7 +191,6 @@ class SideBar extends React.Component {
         </div>
       </>
     );
-console.log(menuItem.subItens)
     return item;
   }
 
@@ -197,7 +199,6 @@ console.log(menuItem.subItens)
     const groupables = this.menuItemList()
       .filter((x) => x.group)
       .map((x, idx) => {
-
         x.subItens = this.menuSubItemList().filter((y)=> y.parentName === x.name);
         return this.buildMenuItem(x, `main-groupable-${idx}`);
       });
