@@ -16,11 +16,6 @@ h1.title {
   font-weight: 400;
 }
 
-hr {
-  width: 10%;
-  color: rgb(146, 167, 32);
-}
-
 .form-group {
   margin-bottom: 15px;
 }
@@ -84,8 +79,9 @@ h11 {
 .sidenav {
   padding-top: 150px;
   min-width: 150px;
-  position: fixed;
+  position: absolute;
   height: 100%;
+  float:left;
 }
 
 .fa-lg {
@@ -167,18 +163,6 @@ nav.main-menu.expanded {
   vertical-align: middle;
   width: 190px;
   font-family: "Titillium Web", sans-serif;
-}
-
-.main-menu .fb-like {
-  left: 180px;
-  position: absolute;
-  top: 15px;
-}
-
-.main-menu > ul.logout {
-  position: absolute;
-  left: 0;
-  bottom: 0;
 }
 
 .no-touch .scrollable.hover {
