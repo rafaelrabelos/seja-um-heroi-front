@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
+import "layout/admin/styles/sidebar.css";
 class SideBar extends React.Component {
   constructor(props) {
     super(props);

@@ -5,7 +5,7 @@ import routes, { getRoutes } from "routes.js";
 //components
 import TopoAdmin from "./components/topo";
 import RodapeAdmin from "./components/rodape";
-import SideBar from './components/sidebar';
+import SideBar from "./components/sidebar";
 import "./styles/layout.css";
 
 class AdminLayout extends React.Component {
@@ -28,11 +28,11 @@ class AdminLayout extends React.Component {
         {!isAdm ? <Redirect to="/hero" /> : ""}
         <TopoAdmin />
         <SideBar basePath="/admin" />
-        <div className="main main-content">
+        <div className="main-content">
           {/* Page content */}
 
           {/* roteamento do layout */}
-          <Container className="mt--8 pb-5">
+          <Container >
             <Row className="justify-content-center">
               <Switch>
                 {getRoutes(routes, "/admin")}
@@ -42,7 +42,6 @@ class AdminLayout extends React.Component {
           </Container>
           <RodapeAdmin />
         </div>
-        
       </>
     );
   }
