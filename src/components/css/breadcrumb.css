@@ -1,0 +1,16 @@
+ ol.breadcrumb li {
+    display: inline;
+    font-size: 12px;
+    text-transform: capitalize;
+  }
+  ol.breadcrumb li+li:before {
+    color: black;
+  }
+  ol.breadcrumb li a {
+    color: #2b69a0;
+    text-decoration: none;
+  }
+  ol.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+  }

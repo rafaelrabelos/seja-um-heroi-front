@@ -40,19 +40,19 @@ var adminRoutes = [
   {
     layout: "/admin",
     page: "/home",
-    nome: "Admin Dashboard",
+    nome: "Home",
     component: AdminDashboard,
   },
   {
     layout: "/admin",
     page: "/profile",
-    nome: "Pet Admin",
+    nome: "Profile",
     component: AdminProfile,
   },
   {
     layout: "/admin",
     page: "/pets-classes",
-    nome: "Pet Admin",
+    nome: "Classes",
     component: PetsClasses,
   },
 ];
@@ -60,12 +60,27 @@ var adminRoutes = [
 const routes = userRoutes.concat(adminRoutes);
 
 function getPageName(path) {
-  for (let i = 0; i < routes.length; i++) {
-    if (path.indexOf(routes[i].layout + routes[i].path) !== -1) {
-      return routes[i].name;
+  
+  const  pathParts = path.split('/').filter(x => x !== "");
+
+  if(pathParts.length < 1){
+    return ""
+  }
+
+  if(pathParts.length === 1){
+    const isLayout = routes.filter((x) =>`${x.layout}` === path).length > 0;
+    if(isLayout){
+      path = path + "/home";
     }
   }
-  return "Brand";
+
+  if(pathParts.length === 2 && pathParts[1] === "home") {
+    return ""
+  }
+
+  const routePage = routes.filter((x) =>`${x.layout}${x.page}` === path)[0];
+  
+  return routePage ? routePage.nome : "";
 }
 
 function getRoutes(routesArray, layout) {

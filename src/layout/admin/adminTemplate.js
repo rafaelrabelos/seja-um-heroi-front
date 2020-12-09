@@ -6,6 +6,7 @@ import routes, { getRoutes } from "routes.js";
 import TopoAdmin from "./components/topo";
 import RodapeAdmin from "./components/rodape";
 import SideBar from "./components/sidebar";
+import BreadCrumb from "components/breadcrumb";
 import "./styles/layout.css";
 
 class AdminLayout extends React.Component {
@@ -29,10 +30,11 @@ class AdminLayout extends React.Component {
         <TopoAdmin />
         <SideBar basePath="/admin" />
         <div className="main-content">
+          <BreadCrumb />
           {/* Page content */}
 
           {/* roteamento do layout */}
-          <Container >
+          <Container>
             <Row className="justify-content-center">
               <Switch>
                 {getRoutes(routes, "/admin")}
