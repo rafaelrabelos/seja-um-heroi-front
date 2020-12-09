@@ -15,9 +15,9 @@ class BreadCrumb extends React.Component {
           {paths.map((x, idx) => {
             link = `${link}/${x}`;
             const active = idx + 1 === paths.length;
-            console.log(active);
             return (
               <li
+                key={`breadcumb-${idx}`}
                 className={`breadcrumb-item ${active ? "active" : ""}`}
                 aria-current={active ? "page" : ""}
               >
