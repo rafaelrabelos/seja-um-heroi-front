@@ -99,6 +99,14 @@ class AdminPetClassesComponent extends React.Component {
     );
   }
 
+  handleEcluirClick(){
+  }
+  handleEditarClick(){
+  }
+  handleClonarClick(){
+  }
+
+
   buildCardButtons() {
     const keyItem = this.props.subkey;
     let { popOverAcao, nomeClasse } = this.state;
@@ -108,7 +116,7 @@ class AdminPetClassesComponent extends React.Component {
         <button
           id={`popover-${keyItem}`}
           className="btn btn-circle btn-danger card-header-btn float-right"
-          onClick={() => alert("clicou1")}
+          onClick={this.handleEcluirClick}
           onMouseOver={() => this.setState({ popOverAcao: `Excluir` })}
         >
           <i className="fa fa-times"></i>
@@ -116,7 +124,7 @@ class AdminPetClassesComponent extends React.Component {
         <button
           id={`popover-${keyItem}`}
           className="btn btn-circle btn-secondary card-header-btn float-right"
-          onClick={() => alert("clicou2")}
+          onClick={this.handleClonarClick}
           onMouseOver={() => this.setState({ popOverAcao: `Duplicar` })}
         >
           <i className="fa fa-clone"></i>
@@ -124,7 +132,7 @@ class AdminPetClassesComponent extends React.Component {
         <button
           id={`popover-${keyItem}`}
           className="btn btn-circle btn-primary card-header-btn float-right"
-          onClick={() => alert("clicou3")}
+          onClick={this.handleEditarClick}
           onMouseOver={() => this.setState({ popOverAcao: `Alterar` })}
         >
           <i className="fa fa-pen"></i>

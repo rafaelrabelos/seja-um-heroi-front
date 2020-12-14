@@ -89,6 +89,7 @@ export default class PetsClasses extends React.Component {
               />
             );
           })}
+          <br /><br />
         </div>
       </>
     );
