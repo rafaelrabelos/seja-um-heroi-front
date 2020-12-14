@@ -31,9 +31,7 @@ export default class PetsClasses extends React.Component {
         if (res.data.status === false) {
           this.showErrors(res);
         } else {
-          this.setState({ petClasses: res.data }, () =>
-            console.log(this.state.petClasses)
-          );
+          this.setState({ petClasses: res.data });
         }
       })
       .catch((err) => {
@@ -51,15 +49,14 @@ export default class PetsClasses extends React.Component {
     return (
       <>
         <div className="col col-md-12">
-          <div class="jumbotron">
-            <h1 class="display-6">Classes/ Familias</h1>
-            <p class="lead">
+          <div className="jumbotron">
+            <h1 className="display-6">Classes/ Familias</h1>
+            <p className="lead">
               Gerencie os cadastros de famílias/classes de pets.
             </p>
             <br />
-            <hr class="my-4" />
-            <p class="lead">
-            
+            <hr className="my-4" />
+            <p className="lead">
               <button
                 className={`btn btn-sm btn-outline-${
                   autoCloseClasses ? "success" : "secondary"
@@ -69,7 +66,10 @@ export default class PetsClasses extends React.Component {
                 <i className="fa fa-check"></i> Auto fechar guias
               </button>{" "}
             </p>
-            <small>As configurações acima estão sendo utilizadas na paginas, ao aterar talvez seja preciso recarregar a pagina para ter efeito.</small>
+            <small>
+              As configurações acima estão sendo utilizadas na paginas, ao
+              aterar talvez seja preciso recarregar a pagina para ter efeito.
+            </small>
           </div>
         </div>
         <div id="adm-pet-classes" className="col col-md-12 col-sm-12">
@@ -89,7 +89,8 @@ export default class PetsClasses extends React.Component {
               />
             );
           })}
-          <br /><br />
+          <br />
+          <br />
         </div>
       </>
     );
