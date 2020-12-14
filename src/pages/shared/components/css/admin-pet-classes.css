@@ -1,0 +1,35 @@
+.admin-pet-classes{
+    margin: 5px;
+}
+
+.pet-class-header{
+    border: rgba(247, 247, 247, 0.021);
+    border-radius: 8PX;
+    border-style: solid;
+    border-width: thin;
+    padding-top: 4px !important;
+    transition: 0.4s;
+    font-weight: bold;
+}
+.pet-class-header:hover{
+    border: rgba(48, 46, 46, 0.774);
+    background-color: rgba(216, 211, 211, 0.863);
+    border-radius: 15PX;
+    border-style: solid;
+    border-width: thin;
+    padding-top: 4px !important;
+    opacity: 0.8;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.pet-class-header .fa{
+    opacity: 0.0;
+    transition: 1.5s;
+}
+.pet-class-header:hover .fa{
+    opacity: 1;
+}
+.card-header-btn{
+    margin-right: 10px;
+    opacity: 1;
+}

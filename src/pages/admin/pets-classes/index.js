@@ -1,18 +1,27 @@
 import React from "react";
 import { PetService } from "services";
+import { AdminPetClassesComponent } from "pages/shared";
 import "./styles.css";
 
 export default class PetsClasses extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      autoCloseClasses:
+        localStorage.getItem("autoCloseClasses") === "true" ? true : false,
       petClasses: [],
     };
   }
 
   PetService;
 
-  async componentWillMount() {
+  toggleAutoClose() {
+    let { autoCloseClasses } = this.state;
+    this.setState({ autoCloseClasses: !autoCloseClasses }, () =>
+      localStorage.setItem("autoCloseClasses", (!autoCloseClasses).toString())
+    );
+  }
+  async componentDidMount() {
     this.getPetClasses();
   }
 
@@ -36,38 +45,50 @@ export default class PetsClasses extends React.Component {
       });
   }
 
-  mountClasses() {
-    return this.state.petClasses.map((x, idx) => {
-      return (
-        <>
-          <div className="col col-sm-12 col-md-12">
-            <div
-              key={idx + "classpet"}
-              className="card"
-              style={{ width: "100%" }}
-            >
-              <div className="card-header">
-                <div className="row">
-                  <div className="col col-md-4">{x.nome}</div>
-                </div>
-              </div>
-              <div className="card-body">
-                <a href={x.wiki_link}> wiki page</a>
-                <br />
-                {x.descricao}
-              </div>
-            </div><br />
-          </div>
-        </>
-      );
-    });
-  }
-
   render() {
+    let { autoCloseClasses } = this.state;
+
     return (
       <>
-        <div className="row">
-          <div className="col col-md-12">{this.mountClasses()}</div>
+        <div className="col col-md-12">
+          <div class="jumbotron">
+            <h1 class="display-6">Classes/ Familias</h1>
+            <p class="lead">
+              Gerencie os cadastros de famílias/classes de pets.
+            </p>
+            <br />
+            <hr class="my-4" />
+            <p class="lead">
+            
+              <button
+                className={`btn btn-sm btn-outline-${
+                  autoCloseClasses ? "success" : "secondary"
+                }`}
+                onClick={() => this.toggleAutoClose()}
+              >
+                <i className="fa fa-check"></i> Auto fechar guias
+              </button>{" "}
+            </p>
+            <small>As configurações acima estão sendo utilizadas na paginas, ao aterar talvez seja preciso recarregar a pagina para ter efeito.</small>
+          </div>
+        </div>
+        <div id="adm-pet-classes" className="col col-md-12 col-sm-12">
+          {this.state.petClasses.map((x, idx) => {
+            return (
+              <AdminPetClassesComponent
+                key={`adm-pet-class-${idx}`}
+                data_parent="adm-pet-classes"
+                subkey={idx}
+                nome={x.nome}
+                descricao={x.descricao}
+                wiki_link={x.wiki_link}
+                criadoPor={x.criadoPor}
+                criadoEm={x.criadoEm}
+                expanded={idx === 0}
+                autoClose={autoCloseClasses}
+              />
+            );
+          })}
         </div>
       </>
     );
